@@ -14,6 +14,8 @@ import {
   View
 } from 'react-native';
 
+import Login from './components/Login';
+
 export default class washApp extends Component {
   render() {
     return (
@@ -21,7 +23,7 @@ export default class washApp extends Component {
         <Text>
           WHERE IS OUR LOGO PAUL
         </Text>
-
+        <Login />
       </View>
     );
   }
