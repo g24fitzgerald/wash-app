@@ -1,2 +1,2 @@
 # wash-app
-pickup and drop-off laundry scheduling service 
+Pickup and Drop-off laundry scheduling service app. 
