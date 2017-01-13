@@ -8,7 +8,7 @@ import {
   View
 } from 'react-native';
 
-export default class washApp extends Component {
+export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('washApp', () => washApp);
+AppRegistry.registerComponent('washApp', () => Login);
