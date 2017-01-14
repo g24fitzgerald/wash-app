@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * Laundry on demand service. Copyright 2017 Gina Fitzgerald, Paul Lizama, Vin Luu, Dan Nguyen
  * https://github.com/facebook/react-native
  * @flow
  */
@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-
+import Login from './components/Login';
 export default class washApp extends Component {
   render() {
     return (
@@ -26,6 +26,7 @@ export default class washApp extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <Login />
       </View>
     );
   }
