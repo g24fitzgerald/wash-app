@@ -19,7 +19,7 @@ export default class Login extends Component {
         <View style={styles.loginIcons}><Text>Icons</Text></View>
         <View style={styles.loginHero}><Text>Hero</Text>
           <TouchableHighlight style={styles.button}>
-            <Text style={styles.buttonText}>Reset Values to 2</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
         </View>
         <View style={styles.loginFooter}><Text>Footer</Text></View>
