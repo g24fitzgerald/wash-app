@@ -19,12 +19,7 @@ import Login from './components/Login';
 export default class washApp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>
-          WHERE IS OUR LOGO PAUL
-        </Text>
-        <Login />
-      </View>
+      <Login />
     );
   }
 }
@@ -32,7 +27,7 @@ export default class washApp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
