@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import firebase from './components/utils/firebase'
+import firebase from './utils/firebase'
 import { REACT_APP_API_KEY, 
          REACT_APP_AUTH_DOMAIN, 
          REACT_APP_DATABASE_URL, 
