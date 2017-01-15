@@ -3,24 +3,20 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+'use strict'
 import React, { Component } from 'react';
-import firebase from './utils/firebase'
-import { REACT_APP_API_KEY, 
-         REACT_APP_AUTH_DOMAIN, 
-         REACT_APP_DATABASE_URL, 
-         REACT_APP_STORAGE_BUCKET,
-         REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
-
 
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator,
+  AsyncStorage
 } from 'react-native';
 
-import Login from './components/Login';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
 
 export default class washApp extends Component {
