@@ -1,113 +1,94 @@
-
 'use strict';
-import React, {
+import {
   AppRegistry,
-  Component,
-  StyleSheet,
   Text,
   TextInput,
   View,
-  AsyncStorage
+  TouchableHighlight,
+  ToolbarAndroid,
+  ActivityIndicator
 } from 'react-native';
-
-import Button from '../components/Button';
-import Header from '../components/Header';
-
+import React, {Component} from 'react';
 import Signup from './Signup';
-import Account from './Account';
-
-import firebase from '../utils/firebase'
-import { REACT_APP_API_KEY, 
-         REACT_APP_AUTH_DOMAIN, 
-         REACT_APP_DATABASE_URL, 
-         REACT_APP_STORAGE_BUCKET,
-         REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
-
-let app = new firebase("https://washapp-99390.firebaseapp.com")
-
 import styles from '../styles/common-styles.js';
 
-export default class login extends Component {
+export default class Login extends Component {
 
   constructor(props){
     super(props);
-
+    // We have the same props as in our signup.js file and they serve the same purposes.
     this.state = {
+      loading: false,
       email: '',
-      password: '',
-      loaded: true
+      password: ''
     }
   }
 
-  render(){
-    return (
-      <View style={styles.container}>
-        <Header text="Login" loaded={this.state.loaded} />
+  render() {
+    // The content of the screen should be inputs for a username, password and submit button.
+    // If we are loading then we display an ActivityIndicator.
+    const content = this.state.loading ? <ActivityIndicator size="large"/> :
+      <View>
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({email: text})}
+          value={this.state.email}
+          placeholder={"Email Address"} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({password: text})}
+          value={this.state.password}
+          secureTextEntry={true}
+          placeholder={"Password"} />
+        <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Login</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this.goToSignup.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>New here?</Text>
+        </TouchableHighlight>
+      </View>;
+
+    // A simple UI with a toolbar, and content below it.
+        return (
+                <View style={styles.container}>
+                        <ToolbarAndroid
+          style={styles.toolbar}
+          title="Login" />
         <View style={styles.body}>
-          <TextInput
-            style={styles.textinput}
-            onChangeText={(text) => this.setState({email: text})}
-            value={this.state.email}
-            placeholder={"Email Address"}
-          />
-          <TextInput
-            style={styles.textinput}
-            onChangeText={(text) => this.setState({password: text})}
-            value={this.state.password}
-            secureTextEntry={true}
-            placeholder={"Password"}
-          />
-
-          <Button
-            text="Login"
-            onpress={this.login.bind(this)}
-            button_styles={styles.primary_button}
-            button_text_styles={styles.primary_button_text} />
-
-          <Button
-            text="New here?"
-            onpress={this.goToSignup.bind(this)}
-            button_styles={styles.transparent_button}
-            button_text_styles={styles.transparent_button_text} />
+          {content}
         </View>
       </View>
-    );
+                );
   }
 
   login(){
-
     this.setState({
-      loaded: false
+      loading: true
     });
-
-    app.authWithPassword({
-      "email": this.state.email,
-      "password": this.state.password
-    }, (error, user_data) => {
-
-      this.setState({
-        loaded: true
-      });
-
-      if(error){
-        alert('Login Failed. Please try again');
-      }else{
-        AsyncStorage.setItem('user_data', JSON.stringify(user_data));
-        this.props.navigator.push({
-          component: Account
-        });
+    // Log in and display an alert to tell the user what happened.
+    this.props.firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password
+    ).then((userData) =>
+      {
+        this.setState({
+                loading: false
+              });
+        alert("Login successful" + userData);
       }
+    ).catch((error) =>
+        {
+              this.setState({
+                loading: false
+              });
+        alert('Login Failed. Please try again');
     });
-
-
   }
 
+  // Go to the signup page
   goToSignup(){
     this.props.navigator.push({
       component: Signup
     });
   }
-
 }
 
-AppRegistry.registerComponent('login', () => login);
+AppRegistry.registerComponent('Login', () => Login);

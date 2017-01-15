@@ -1,35 +1,25 @@
 'use strict';
-import React, {
+import React, { Component } from 'react';
+
+import {
 	   AppRegistry,
-	   Component,
 	   Text,
 	   TextInput,
-	   View
+	   View,
+	   TouchableHighlight,
+	   ActivityIndicator
 } from 'react-native';
 
-import Button from '../components/Button';
-import Header from '../components/Header';
-
 import Login from './Login';
-
-import firebase from '../utils/firebase'
-import { REACT_APP_API_KEY, 
-         REACT_APP_AUTH_DOMAIN, 
-         REACT_APP_DATABASE_URL, 
-         REACT_APP_STORAGE_BUCKET,
-         REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
-
-let app = new firebase("https://washapp-99390.firebaseapp.com")
-
 import styles from '../styles/common-styles.js';
 
-export default class signup extends Component {
+export default class Signup extends Component {
 
 	constructor(props){
 		super(props);
 
 		this.state = {
-			loaded: true,
+			loading: false,
 			email: '',
 			password: ''
 		};
@@ -37,81 +27,71 @@ export default class signup extends Component {
 
 	signup(){
 		this.setState({
-			loaded: false
+			loading: true
 		});
 
-		app.createUser({
-			'email': this.state.email,
-			'password': this.state.password
-		}, (error, userData) => {
+		this.props.firebase.auth().createUserWithEmailAndPassword(
+			this.state.email,
+			this.state.password).then(() => {
+				alert('Your account was created!');
 
-			if(error){
-				switch(error.code){
-					case "EMAIL_TAKEN":
-						alert("The new user account cannot be created because the email is already in use.")
-					break;
-
-					case "INVALID_EMAIL":
-						alert("The specified email is not a valid email.")
-					break;					
-
-					default:
-						alert("Error creating user:")
-				}
-			} else {
-				alert('Your account was created')
-			}
-
-			this.setState({
-				email: '',
-				password: '',
-				loaded: true
+				this.setState({
+					email: '',
+					password: '',
+					loading: false
+				});
+			}).catch((error) => {
+				this.setState({
+					loading: false
+				});
+				alert("Account creation failed: " + error.message );
 			});
-		})
+		
 	}
 
-	goToLogin(){
+	login(){
 		this.props.navigator.push({
 			component: Login
 		});
 	}
 
-	render(){
-		return(
-	      <View style={styles.container}>
-	        <Header text="Signup" loaded={this.state.loaded} />
-	        <View style={styles.body}>
+render() {
+    // The content of the screen should be inputs for a username, password and submit button.
+    // If we are loading then we display an ActivityIndicator.
+    const content = this.state.loading ? <ActivityIndicator size="large"/> :
+      <View>
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({email: text})}
+          value={this.state.email}
+          placeholder={"Email Address"} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({password: text})}
+          value={this.state.password}
+          secureTextEntry={true}
+          placeholder={"Password"} />
+        <TouchableHighlight onPress={this.signup.bind(this)} style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Signup</Text>
+        </TouchableHighlight>
 
-	            <TextInput
-	            style={styles.textinput}
-	            onChangeText={(text) => this.setState({email: text})}
-	            value={this.state.email}
-	            placeholder={"Email Address"}
-	            />
-	          <TextInput
-	            style={styles.textinput}
-	            onChangeText={(text) => this.setState({password: text})}
-	            value={this.state.password}
-	            secureTextEntry={true}
-	            placeholder={"Password"}
-	          />
-	          <Button
-	            text="Signup"
-	            onpress={this.signup.bind(this)}
-	            button_styles={styles.primary_button}
-	            button_text_styles={styles.primary_button_text} />
+        <TouchableHighlight onPress={this.login.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Go to Login</Text>
+        </TouchableHighlight>
 
-	          <Button
-	            text="Got an Account?"
-	            onpress={this.goToLogin.bind(this)}
-	            button_styles={styles.transparent_button}
-	            button_text_styles={styles.transparent_button_text} />
-	        </View>
-	      </View>
-	    );
-	}
+      </View>;
 
+    // A simple UI with a toolbar, and content below it.
+        return (
+                <View style={styles.container}>
+        			<View style={styles.body}>
+          		{content}
+        			</View>
+      			</View>
+                )
+  }
 }
 
-AppRegistry.registerComponent('signup', ()=> signup);
+
+AppRegistry.registerComponent('Signup', () => Signup);
 

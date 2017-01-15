@@ -5,33 +5,43 @@ import React, {
 
 module.exports = StyleSheet.create({
   container: {
-    flex: 1,
+    alignItems: 'stretch',
+    flex: 1
   },
   body: {
     flex: 9,
-    alignItems: 'center',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
     backgroundColor: '#F5FCFF',
   },
-  textinput: {
+  toolbar: {
+        height: 56,
+    backgroundColor: '#e9eaed',
+  },
+  textInput: {
     height: 40,
+    width: 200,
     borderColor: 'red',
     borderWidth: 1
   },
-  transparent_button: {
+  transparentButton: {
     marginTop: 10,
     padding: 15
   },
-  transparent_button_text: {
+  transparentButtonText: {
     color: '#0485A9',
+    textAlign: 'center',
     fontSize: 16
   },
-  primary_button: {
+  primaryButton: {
     margin: 10,
     padding: 15,
     backgroundColor: '#529ecc'
   },
-  primary_button_text: {
+  primaryButtonText: {
     color: '#FFF',
+    textAlign: 'center',
     fontSize: 18
   },
   image: {
