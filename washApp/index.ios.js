@@ -5,6 +5,12 @@
  */
 
 import React, { Component } from 'react';
+import firebase from './components/utils/firebase'
+import { REACT_APP_API_KEY, 
+         REACT_APP_AUTH_DOMAIN, 
+         REACT_APP_DATABASE_URL, 
+         REACT_APP_STORAGE_BUCKET,
+         REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
 
 
 import {
@@ -15,6 +21,7 @@ import {
 } from 'react-native';
 
 import Login from './components/Login';
+
 
 export default class washApp extends Component {
   render() {
