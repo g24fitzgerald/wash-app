@@ -8,16 +8,17 @@ import {
 } from 'react-native';
 import styles from '../styles/common-styles';
 import TextBox from  '../components/Textbox';
-import button from '../components/Button';
 
-export default class washApp extends Component {
+export default class Confirmation extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Heading label="Select your pickup date" />
+        <Heading label="Confirmation" />
         <TextBox />
-        <Heading label="Pickup Time: " />
-        <Heading label="Drop Off Time: " />
+        <View style={stylesConfirm.pickupWindow}>
+          <Heading label="Pickup Time: " />
+          <Heading label="Drop Off Time: " />
+        </View>
         <TouchableHighlight style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Confirm Order</Text>
         </TouchableHighlight>
@@ -43,5 +44,8 @@ const stylesConfirm = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  pickupWindow: {
+    margin: 20
   }
 });

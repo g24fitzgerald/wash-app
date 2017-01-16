@@ -7,7 +7,8 @@ module.exports = StyleSheet.create({
   container: {
     alignItems: 'stretch',
     flex: 1,
-    marginTop: 20
+    marginTop: 50,
+    padding: 10
   },
   body: {
     flex: 9,
@@ -25,6 +26,12 @@ module.exports = StyleSheet.create({
     width: 200,
     borderColor: 'red',
     borderWidth: 1
+  },
+  textInputBox: {
+    height: 100,
+    width: 300,
+    borderColor: 'gray',
+    borderWidth: 1,
   },
   transparentButton: {
     marginTop: 10,
