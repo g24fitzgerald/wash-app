@@ -5,10 +5,11 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableHighlight,
   View,
 } from 'react-native';
-
-export default class DatePickerExample extends Component {
+import styles from '../styles/common-styles';
+export default class DatePickup extends Component {
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -35,44 +36,26 @@ export default class DatePickerExample extends Component {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
     return (
-      <View>
-        <WithLabel label="Value:">
-          <Text>{
-            this.state.date.toLocaleDateString() +
-            ' ' +
-            this.state.date.toLocaleTimeString()
-          }</Text>
-        </WithLabel>
-        <WithLabel label="Timezone:">
-          <TextInput
-            onChange={this.onTimezoneChange}
-            style={styles.textinput}
-            value={this.state.timeZoneOffsetInHours.toString()}
-          />
-          <Text> hours from UTC</Text>
-        </WithLabel>
-        <Heading label="Date + time picker" />
+      <View style={stylesPicker.pickerContainer}>
+
+        <Heading label="Select your pickup date" />
         <DatePickerIOS
           date={this.state.date}
           mode="datetime"
           timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
           onDateChange={this.onDateChange}
         />
-        <Heading label="Date picker" />
-        <DatePickerIOS
-          date={this.state.date}
-          mode="date"
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onDateChange}
-        />
-        <Heading label="Time picker, 10-minute interval" />
-        <DatePickerIOS
-          date={this.state.date}
-          mode="time"
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onDateChange}
-          minuteInterval={10}
-        />
+
+        <WithLabel label="Pickup Time:">
+          <Text>{
+            this.state.date.toLocaleDateString() +
+            ' ' +
+            this.state.date.toLocaleTimeString()
+          }</Text>
+        </WithLabel>
+        <TouchableHighlight style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Submit Pickup Time</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -81,9 +64,9 @@ export default class DatePickerExample extends Component {
 class WithLabel extends Component {
   render() {
     return (
-      <View style={styles.labelContainer}>
-        <View style={styles.labelView}>
-          <Text style={styles.label}>
+      <View style={stylesPicker.labelContainer}>
+        <View style={stylesPicker.labelView}>
+          <Text style={stylesPicker.label}>
             {this.props.label}
           </Text>
         </View>
@@ -96,8 +79,8 @@ class WithLabel extends Component {
 class Heading extends Component {
   render() {
     return (
-      <View style={styles.headingContainer}>
-        <Text style={styles.heading}>
+      <View style={stylesPicker.headingContainer}>
+        <Text style={stylesPicker.heading}>
           {this.props.label}
         </Text>
       </View>
@@ -112,11 +95,15 @@ exports.examples = [
 {
   title: '<DatePickerIOS>',
   render: function(): React.Element<any> {
-    return <DatePickerExample />;
+    return <DatePickup />;
   },
 }];
 
-var styles = StyleSheet.create({
+var stylesPicker = StyleSheet.create({
+  pickerContainer: {
+    paddingVertical: 30,
+    justifyContent: 'center'
+  },
   textinput: {
     height: 26,
     width: 50,
@@ -146,5 +133,3 @@ var styles = StyleSheet.create({
     fontSize: 14,
   },
 });
-
-// AppRegistry.registerComponent('washApp', () => DatePickerExample);
