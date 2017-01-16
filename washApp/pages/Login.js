@@ -10,7 +10,9 @@ import {
 import React, {Component} from 'react';
 import Signup from './Signup';
 import Profile from './Profile';
+import ProfileName from './ProfileName'
 import styles from '../styles/common-styles.js';
+import Dashboard from './Dashboard'
 
 export default class Login extends Component {
 
@@ -70,7 +72,7 @@ export default class Login extends Component {
         this.setState({
                 loading: false
               });
-        
+
       }
     ).catch((error) =>
         {
@@ -80,9 +82,9 @@ export default class Login extends Component {
         alert('Login Failed. Please try again');
     });
 
-    this.props.navigator.push({
-      component: Profile
-    })
+            this.props.navigator.push({
+                component: Dashboard
+              });
   }
 
   // Go to the signup page

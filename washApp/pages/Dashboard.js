@@ -1,14 +1,24 @@
+'use strict'
 import React, { Component } from 'react';
-
 
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
+  ActivityIndicator
 } from 'react-native';
 
+import Pickup from './Pickup'
+
 export default class washApp extends Component {
+
+  goToPickup(){
+        this.props.navigator.push({
+      component: Pickup
+    })
+  }
 
   render() {
           return (
@@ -17,7 +27,9 @@ export default class washApp extends Component {
               <View style={styles.container}>
                     <View style={styles.row}>
                       <Text style={styles.dashText}>Dashboard Icons</Text>
-
+        <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Pickup</Text>
+        </TouchableHighlight>
                     </View>
               </View>
             </View>

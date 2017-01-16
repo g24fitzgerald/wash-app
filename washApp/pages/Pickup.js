@@ -9,7 +9,43 @@ import {
   View,
 } from 'react-native';
 import styles from '../styles/common-styles';
+
 export default class DatePickup extends Component {
+  // constructor(props) {
+  //   super(props);
+    
+  //   this.state = {
+  //     loading: false,
+  //     uid: '',
+  //     date: ''
+
+  //   }
+  // }
+
+  // componentWillMount() {
+  //   const userData = this.props.firebase.auth().currentUser;
+
+  //   this.setState({
+  //     uid: userData.uid
+  //   });
+  // }
+
+  handleSubmit(){
+    // this.setState({
+    //   loading: true
+    // });
+
+            console.log(this.state.date.toLocaleDateString())
+                    console.log(this.state.date.toLocaleTimeString())
+
+    // this.props.firebase.database()
+    //   .ref('/users/'+this.state.uid+'/orders')
+    //   .push({
+
+    //   })
+
+  }
+
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -53,7 +89,7 @@ export default class DatePickup extends Component {
             this.state.date.toLocaleTimeString()
           }</Text>
         </WithLabel>
-        <TouchableHighlight style={styles.primaryButton}>
+        <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Submit Pickup Time</Text>
         </TouchableHighlight>
       </View>
