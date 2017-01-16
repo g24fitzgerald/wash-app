@@ -23,7 +23,6 @@ import {
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Home';
 import * as firebase from 'firebase'
 
 // import { firebase } from './utils/firebase'
@@ -50,7 +49,7 @@ export default class washApp extends Component {
       return (
 
         <Navigator
-        initialRoute={{component: Home}}
+        initialRoute={{component: Login}}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
