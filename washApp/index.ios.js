@@ -23,7 +23,10 @@ import {
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Dashboard';
+
+import Home from './pages/Home';
+
+
 import * as firebase from 'firebase'
 
 // import { firebase } from './utils/firebase'
@@ -41,16 +44,10 @@ import * as firebase from 'firebase'
 import styles from './styles/common-styles';
 
 export default class washApp extends Component {
-
-
-
   render(){
-
-
       return (
-
         <Navigator
-        initialRoute={{component: Home}}
+        initialRoute={{component: Login}}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
@@ -60,12 +57,9 @@ export default class washApp extends Component {
             // Pass firebaseApp so it can make calls to firebase.
             return React.createElement(route.component, { navigator, firebase});
           }
-      }} />
-
+        }} />
       );
-
   }
-
 }
 
 AppRegistry.registerComponent('washApp', () => washApp);
