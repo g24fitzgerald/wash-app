@@ -62,6 +62,7 @@ export default class Login extends Component {
       loading: true
     });
     // Log in and display an alert to tell the user what happened.
+    console.log("what is ", this.props.firebase.auth())
     this.props.firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password
     ).then((userData) =>
       {
