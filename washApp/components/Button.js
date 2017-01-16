@@ -4,13 +4,12 @@
 import React, { Component } from 'react';
 
 import {
-	AppRegistry,
 	Text,
 	View,
 	TouchableHighlight
 } from 'react-native';
 
-export default class button extends Component {
+export default class Button extends Component {
 
 	render(){
 		return(
@@ -21,11 +20,6 @@ export default class button extends Component {
 	          </View>
 	        </TouchableHighlight>
 	      </View>
-
 			)
 	}
-
-
 }
-
-AppRegistry.registerComponent('button', () => button);
