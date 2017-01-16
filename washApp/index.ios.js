@@ -17,7 +17,7 @@ import {
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Pickup'; //change this to whatever file you're working on
+import Home from './pages/Dropoff'; //change this to whatever file you're working on
 import * as firebase from 'firebase'
 
 // import { firebase } from './utils/firebase'

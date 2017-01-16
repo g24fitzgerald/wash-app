@@ -101,7 +101,7 @@ exports.examples = [
 
 var stylesPicker = StyleSheet.create({
   pickerContainer: {
-    paddingVertical: 30,
+    marginTop: 50,
     justifyContent: 'center'
   },
   textinput: {
