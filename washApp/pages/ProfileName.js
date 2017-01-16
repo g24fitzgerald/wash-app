@@ -103,5 +103,5 @@ render() {
 }
 
 
-AppRegistry.registerComponent('Signup', () => Signup);
+AppRegistry.registerComponent('ProfileName', () => ProfileName);
 
