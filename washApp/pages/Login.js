@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {Component} from 'react';
 import Signup from './Signup';
+import ProfileName from './ProfileName';
 import styles from '../styles/common-styles.js';
 
 export default class Login extends Component {
@@ -78,6 +79,10 @@ export default class Login extends Component {
               });
         alert('Login Failed. Please try again');
     });
+
+    this.props.navigator.push({
+      component: ProfileName
+    })
   }
 
   // Go to the signup page

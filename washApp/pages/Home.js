@@ -34,7 +34,9 @@ export default class Home extends Component {
         </TouchableHighlight>
         </View>
         <View style={pageStyles.loginFooter}>
-          <Text style={pageStyles.footerText}>How It Works</Text></View>
+          <Text style={pageStyles.footerText}>How It Works</Text>
+          
+        </View>
       </View>
     );
   }
