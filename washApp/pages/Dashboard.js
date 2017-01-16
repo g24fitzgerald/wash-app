@@ -9,24 +9,52 @@ import {
 } from 'react-native';
 
 export default class washApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>
-        Dashboard
-        </Text>
-      </View>
-    );
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  render() {
+          return (
+            <View style={styles.view}>
+              <Text style={styles.title}>Launder This</Text>
+              <View style={styles.container}>
+                    <View style={styles.row}>
+                      <Text style={styles.dashText}>Dashboard Icons</Text>
+
+                    </View>
+              </View>
+            </View>
+          );
+      }
   }
-});
+
+  const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white'
+      },
+      view: {
+        backgroundColor: '#1AAEED',
+        flex: 1,
+        paddingBottom: 50
+      },
+
+      title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#afeeee',
+        textAlign: 'center',
+        padding: 15
+      },
+      row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      dashText: {
+        color: '#1AAEED',
+        fontSize: 16,
+        width:150
+      }
+  });
 
 AppRegistry.registerComponent('washApp', () => washApp);

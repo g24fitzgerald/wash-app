@@ -11,7 +11,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import Login from './Login'; 
+import Login from './Login';
 import styles from '../styles/common-styles.js';
 
 export default class Home extends Component {
@@ -23,10 +23,8 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={pageStyles.containerLogin}>
-        <Text style={pageStyles.loginTitle}>
-        Launder This
-        </Text>
+      <View style={pageStyles.view}>
+        <Text style={pageStyles.title}>Launder This</Text>
         <View style={pageStyles.loginIcons}><Text>Icons</Text></View>
         <View style={pageStyles.loginHero}><Text>Hero</Text>
         <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
@@ -43,71 +41,52 @@ export default class Home extends Component {
 }
 
 const pageStyles = StyleSheet.create({
-  containerLogin: {
-    flex: 6,
+  container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    flexDirection: 'column',
   },
-  loginTitle: {
+  view: {
     backgroundColor: '#1AAEED',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    flexDirection: 'row',
-    width: 375,
-    fontSize: 50,
+  },
+  title: {
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 10,
-
+    color: '#afeeee',
+    textAlign: 'center',
+    padding: 15
   },
   loginIcons: {
-    backgroundColor: '#37D4D4',
+    backgroundColor: 'white',
     flex: 1,
-    width: 375,
     alignItems: 'center',
     marginBottom: 10,
-
   },
   loginHero: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     flex: 3,
-    width: 375,
     alignItems: 'center',
     marginBottom: 10,
-
   },
   loginFooter: {
-    backgroundColor: '#1AAEED',
+    backgroundColor: 'white',
     flex: 1,
-    width: 375,
     alignItems: 'center',
-
-
   },
   button: {
-  backgroundColor: 'white',
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-  maxHeight: 10,
-
-
+    backgroundColor: 'white',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-
-  buttonText: {
-  fontSize: 20,
-  color: 'black'
-  },
-
   footerText: {
     fontSize: 25,
     alignItems: 'flex-start',
-    justifyContent: 'flex-end'
-
+    justifyContent: 'flex-end',
+    color: '#1AAEED'
   }
-
 });
 
 AppRegistry.registerComponent('washApp', () => Home);

@@ -6,7 +6,8 @@ import React, {
 module.exports = StyleSheet.create({
   container: {
     alignItems: 'stretch',
-    flex: 1
+    flex: 1,
+    marginTop: 20
   },
   body: {
     flex: 9,
@@ -47,5 +48,12 @@ module.exports = StyleSheet.create({
   image: {
     width: 100,
     height: 100
+  },
+  label: {
+    fontWeight: '500',
+  },
+  heading: {
+    fontWeight: '500',
+    fontSize: 14,
   }
 });

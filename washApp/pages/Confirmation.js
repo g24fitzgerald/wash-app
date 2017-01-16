@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-
-
 import {
-  AppRegistry,
   StyleSheet,
   Text,
-  View
+  TextInput,
+  TouchableHighlight,
+  View,
 } from 'react-native';
+import styles from '../styles/common-styles';
+import TextBox from  '../components/Textbox';
+import button from '../components/Button';
 
 export default class washApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-        CONFIMRATION
-        </Text>
+        <Heading label="Select your pickup date" />
+        <TextBox />
+        
+        <TouchableHighlight style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Confirm Order</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+class Heading extends Component {
+  render() {
+    return (
+      <View style={styles.headingContainer}>
+        <Text style={styles.heading}>
+          {this.props.label}
+        </Text>
+      </View>
+    );
+  }
+}
+const stylesConfirm = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -28,5 +44,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 });
-
-AppRegistry.registerComponent('washApp', () => washApp);
