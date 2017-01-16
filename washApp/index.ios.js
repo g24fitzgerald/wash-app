@@ -40,14 +40,8 @@ import * as firebase from 'firebase'
 import styles from './styles/common-styles';
 
 export default class washApp extends Component {
-
-
-
   render(){
-
-
       return (
-
         <Navigator
         initialRoute={{component: Login}}
         configureScene={() => {
@@ -59,12 +53,9 @@ export default class washApp extends Component {
             // Pass firebaseApp so it can make calls to firebase.
             return React.createElement(route.component, { navigator, firebase});
           }
-      }} />
-
+        }} />
       );
-
   }
-
 }
 
 AppRegistry.registerComponent('washApp', () => washApp);
