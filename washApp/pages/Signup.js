@@ -34,7 +34,6 @@ export default class Signup extends Component {
 		this.props.firebase.auth().createUserWithEmailAndPassword(
 			this.state.email,
 			this.state.password).then(() => {
-				alert('Your account was created!');
 
 				this.setState({
 					email: '',

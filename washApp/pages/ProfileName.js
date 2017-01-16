@@ -20,10 +20,21 @@ export default class ProfileName extends Component {
 
     this.state = {
       loading: false,
+      user: '',
+      uid: '',
       firstName: '',
       lastName: '',
       phoneNumber: ''
     };
+  }
+
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+
+    this.setState({
+      email: userData.email,
+      uid: userData.uid
+    });
   }
 
   handleSubmit(e){
@@ -32,16 +43,19 @@ export default class ProfileName extends Component {
     })
 
     this.props.firebase.database()
-      .ref()
-      .push({
+      .ref('/users/'+this.state.uid)
+      .set({
+
         firstName: this.state.firstName,
         lastnName: this.state.lastName,
-        phoneNumber: this.state.phoneNumber
+        phoneNumber: this.state.phoneNumber,
+        email: this.state.email
       }).then(() => {
         this.setState({
           firstName: '',
           lastName: '',
           phoneNumber: '',
+          user: '',
           loading: false
         });
       })
