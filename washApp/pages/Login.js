@@ -5,7 +5,6 @@ import {
   TextInput,
   View,
   TouchableHighlight,
-  ToolbarAndroid,
   ActivityIndicator
 } from 'react-native';
 import React, {Component} from 'react';
@@ -51,9 +50,6 @@ export default class Login extends Component {
     // A simple UI with a toolbar, and content below it.
         return (
                 <View style={styles.container}>
-                        <ToolbarAndroid
-          style={styles.toolbar}
-          title="Login" />
         <View style={styles.body}>
           {content}
         </View>
