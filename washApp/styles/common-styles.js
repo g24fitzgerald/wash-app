@@ -16,7 +16,7 @@ module.exports = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   toolbar: {
-        height: 56,
+    height: 56,
     backgroundColor: '#e9eaed',
   },
   textInput: {

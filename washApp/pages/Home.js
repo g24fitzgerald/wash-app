@@ -11,7 +11,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import Login from './Login';
+import Login from './Login'; 
 import styles from '../styles/common-styles.js';
 
 export default class Home extends Component {
@@ -90,7 +90,7 @@ const pageStyles = StyleSheet.create({
   justifyContent: 'center',
   alignItems: 'center',
   maxHeight: 10,
-  
+
 
   },
 
