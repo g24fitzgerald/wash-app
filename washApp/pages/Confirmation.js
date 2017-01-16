@@ -16,7 +16,8 @@ export default class washApp extends Component {
       <View style={styles.container}>
         <Heading label="Select your pickup date" />
         <TextBox />
-        
+        <Heading label="Pickup Time: " />
+        <Heading label="Drop Off Time: " />
         <TouchableHighlight style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Confirm Order</Text>
         </TouchableHighlight>
