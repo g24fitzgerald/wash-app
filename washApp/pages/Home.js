@@ -5,31 +5,42 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ActivityIndicator
 } from 'react-native';
 
-export default class Login extends Component {
+import Login from './Login';
+import styles from '../styles/common-styles.js';
+
+export default class Home extends Component {
+  login(){
+    this.props.navigator.push({
+      component: Login
+    });
+  }
+
   render() {
     return (
-      <View style={styles.containerLogin}>
-        <Text style={styles.loginTitle}>
+      <View style={pageStyles.containerLogin}>
+        <Text style={pageStyles.loginTitle}>
         Launder This
         </Text>
-        <View style={styles.loginIcons}><Text>Icons</Text></View>
-        <View style={styles.loginHero}><Text>Hero</Text>
-          <TouchableHighlight style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableHighlight>
+        <View style={pageStyles.loginIcons}><Text>Icons</Text></View>
+        <View style={pageStyles.loginHero}><Text>Hero</Text>
+        <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Go to Login</Text>
+        </TouchableHighlight>
         </View>
-        <View style={styles.loginFooter}>
-          <Text style={styles.footerText}>How It Works</Text></View>
+        <View style={pageStyles.loginFooter}>
+          <Text style={pageStyles.footerText}>How It Works</Text></View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const pageStyles = StyleSheet.create({
   containerLogin: {
     flex: 6,
     justifyContent: 'center',
@@ -97,4 +108,4 @@ const styles = StyleSheet.create({
 
 });
 
-AppRegistry.registerComponent('washApp', () => Login);
+AppRegistry.registerComponent('washApp', () => Home);
