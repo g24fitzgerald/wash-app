@@ -17,7 +17,7 @@ export default class washApp extends Component {
               <View style={styles.container}>
                     <View style={styles.row}>
                       <Text style={styles.dashText}>Dashboard Icons</Text>
-                      
+
                     </View>
               </View>
             </View>
@@ -33,7 +33,7 @@ export default class washApp extends Component {
         backgroundColor: 'white'
       },
       view: {
-        backgroundColor: '#afeeee',
+        backgroundColor: '#1AAEED',
         flex: 1,
         paddingBottom: 50
       },
@@ -41,7 +41,7 @@ export default class washApp extends Component {
       title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: '#1e90ff',
+        color: '#afeeee',
         textAlign: 'center',
         padding: 15
       },
@@ -51,7 +51,7 @@ export default class washApp extends Component {
         justifyContent: 'center'
       },
       dashText: {
-        color: '#1e90ff',
+        color: '#1AAEED',
         fontSize: 16,
         width:150
       }
