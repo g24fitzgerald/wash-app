@@ -15,15 +15,15 @@ import {
   AsyncStorage
 } from 'react-native';
 
-// import { REACT_APP_API_KEY, 
-//          REACT_APP_AUTH_DOMAIN, 
-//          REACT_APP_DATABASE_URL, 
+// import { REACT_APP_API_KEY,
+//          REACT_APP_AUTH_DOMAIN,
+//          REACT_APP_DATABASE_URL,
 //          REACT_APP_STORAGE_BUCKET,
 //          REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Home';
+import Home from './pages/Dashboard';
 import * as firebase from 'firebase'
 
 // import { firebase } from './utils/firebase'

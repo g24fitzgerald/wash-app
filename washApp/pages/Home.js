@@ -90,7 +90,7 @@ const pageStyles = StyleSheet.create({
   justifyContent: 'center',
   alignItems: 'center',
   maxHeight: 10,
-  
+
 
   },
 
