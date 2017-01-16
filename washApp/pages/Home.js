@@ -8,7 +8,8 @@ import {
   TextInput,
   View,
   TouchableHighlight,
-  ActivityIndicator
+  ActivityIndicator,
+  Image
 } from 'react-native';
 
 import Login from './Login';
@@ -24,9 +25,16 @@ export default class Home extends Component {
   render() {
     return (
       <View style={pageStyles.view}>
-        <Text style={pageStyles.title}>Launder This</Text>
-        <View style={pageStyles.loginIcons}><Text>Icons</Text></View>
-        <View style={pageStyles.loginHero}><Text>Hero</Text>
+          <Image
+          source={require('../images/logo_name.png')}
+          style={pageStyles.backgroundImg} />
+        <View style={pageStyles.loginIcons}>
+
+        </View>
+        <View style={pageStyles.loginHero}>
+         <Image 
+          source={require('../images/skyline.png')}
+          style={pageStyles.backgroundImg} />
         <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Go to Login</Text>
         </TouchableHighlight>
@@ -41,6 +49,13 @@ export default class Home extends Component {
 }
 
 const pageStyles = StyleSheet.create({
+  backgroundImg: { 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    flex: 1, 
+    resizeMode: Image.resizeMode.contain,
+
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
