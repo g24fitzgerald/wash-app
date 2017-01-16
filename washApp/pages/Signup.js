@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import Login from './Login';
+import ProfileName from './ProfileName'
 import styles from '../styles/common-styles.js';
 
 export default class Signup extends Component {
@@ -46,6 +47,9 @@ export default class Signup extends Component {
 				});
 				alert("Account creation failed: " + error.message );
 			});
+		this.props.navigator.push({
+			component: ProfileName
+		})
 		
 	}
 
