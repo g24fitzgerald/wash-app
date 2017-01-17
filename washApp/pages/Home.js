@@ -123,11 +123,11 @@ const pageStyles = StyleSheet.create({
   },
   primaryButtonText: {
     backgroundColor: '#1AAEED',
-    margin: 10,
+    margin: 20,
     padding: 15,
     color: 'white',
     fontWeight: 'bold'
   }
 });
 
-AppRegistry.registerComponent('washApp', () => Home);
+AppRegistry.registerComponent('Home', () => Home);

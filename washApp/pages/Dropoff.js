@@ -9,7 +9,11 @@ import {
   View,
   Image
 } from 'react-native';
+
+import Confirmation from './Confirmation'
+
 import styles from '../styles/common-styles';
+
 export default class DateDropoff extends Component {
   static defaultProps = {
     date: new Date(),
@@ -32,6 +36,32 @@ export default class DateDropoff extends Component {
     }
     this.setState({timeZoneOffsetInHours: offset});
   };
+
+  componentWillMount(){
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false,
+      uid: userData.uid,
+      pickup: dataSetter()
+    })
+  }
+
+  handleSubmit(){
+    this.props.firebase.database()
+      .ref('/users/'+this.state.uid+'/orders')
+      .push({
+            pickupDate: this.state.date.toLocaleDateString(),
+            pickupTime: this.state.date.toLocaleTimeString(),
+            pickup: this.state.date
+          });
+
+    this.props.navigator.push({
+      component: Confirmation
+    })
+
+  }
+
+
 
   render() {
     // Ideally, the timezone input would be a picker rather than a

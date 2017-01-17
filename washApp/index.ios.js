@@ -31,6 +31,16 @@ import { firebase } from './utils/firebase'
 import styles from './styles/common-styles';
 
 export default class washApp extends Component {
+  dataSetter(info){
+    this.setState({ wizardData: info })
+
+  }
+
+  dataGetter(){
+    return this.state.wizardData
+  }
+
+
   render(){
       return (
         <Navigator
