@@ -122,7 +122,7 @@ const pageStyles = StyleSheet.create({
   primaryButtonText: {
     backgroundColor: '#1AAEED',
     margin: 10,
-    padding: 20,
+    padding: 15,
     color: 'white',
     fontWeight: 'bold'
   }
