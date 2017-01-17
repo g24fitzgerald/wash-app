@@ -30,9 +30,8 @@ export default class ProfileName extends Component {
   }
 
   componentWillMount() {
-    const userData = this.props.firebase.auth().onAuthStateChanged(user => this.setState({ user }));
-
-  }
+    this.props.firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+    }
 
   handleSubmit(e){
     this.setState({
@@ -73,7 +72,7 @@ render() {
           style={styles.textInput}
           onChangeText={(text) => this.setState({phoneNumber: text})}
           value={this.state.phoneNumber}
-          placeholder={"Phone Number"} />        
+          placeholder={"Phone Number"} />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Next</Text>
         </TouchableHighlight>
@@ -94,4 +93,3 @@ render() {
 
 
 AppRegistry.registerComponent('ProfileName', () => ProfileName);
-
