@@ -24,6 +24,7 @@ export default class DatePickup extends Component {
   state = {
     date: this.props.date,
     timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
+
   };
 
   onDateChange = (date) => {
