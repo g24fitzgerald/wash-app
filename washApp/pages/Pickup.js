@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {
+  AppRegistry,
   DatePickerIOS,
   StyleSheet,
   Text,
@@ -52,17 +53,9 @@ export default class DatePickup extends Component {
       loading: true
     });
 
-      console.log(this.state.date.toLocaleDateString())
-      console.log(this.state.date.toLocaleTimeString())
-      console.log(this.state.date)
+    this.props.dataSetter({ pickup: this.state.date })
 
-    this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders')
-      .push({
-          pickupDate: this.state.date.toLocaleDateString(),
-          pickupTime: this.state.date.toLocaleTimeString(),
-          pickup: this.state.date
-      })
+
 
     this.props.navigator.push({
       component: Dropoff
@@ -178,3 +171,5 @@ var stylesPicker = StyleSheet.create({
     textAlign: 'center'
   },
 });
+
+AppRegistry.registerComponent('DatePickup', () => Pickup);

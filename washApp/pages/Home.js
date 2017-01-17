@@ -131,4 +131,4 @@ const pageStyles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('washApp', () => Home);
+AppRegistry.registerComponent('Home', () => Home);
