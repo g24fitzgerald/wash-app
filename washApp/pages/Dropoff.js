@@ -53,8 +53,8 @@ export default class DateDropoff extends Component {
             this.state.date.toLocaleTimeString()
           }</Text>
         </WithLabel>
-        <TouchableHighlight style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Submit Drop Off Time</Text>
+        <TouchableHighlight style={stylesPicker.primaryButton}>
+          <Text style={stylesPicker.primaryButtonText}>Submit Drop Off Time</Text>
         </TouchableHighlight>
       </View>
     );
@@ -131,5 +131,13 @@ var stylesPicker = StyleSheet.create({
   heading: {
     fontWeight: '500',
     fontSize: 14,
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
 });
