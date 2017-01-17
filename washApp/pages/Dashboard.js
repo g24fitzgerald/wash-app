@@ -78,7 +78,7 @@ export default class washApp extends Component {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 70,
+      maxWidth: 100,
       resizeMode: Image.resizeMode.contain,
     },
       container: {

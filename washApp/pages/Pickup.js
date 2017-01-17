@@ -18,6 +18,7 @@ export default class DatePickup extends Component {
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
   };
 
+
   state = {
     date: this.props.date,
     timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
@@ -164,5 +165,13 @@ var stylesPicker = StyleSheet.create({
   heading: {
     fontWeight: '500',
     fontSize: 14,
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
 });
