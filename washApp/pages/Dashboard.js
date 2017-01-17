@@ -64,21 +64,21 @@ export default class washApp extends Component {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 80,
+      maxWidth: 70,
       resizeMode: Image.resizeMode.contain,
     },
     backgroundCalendar: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 80,
+      maxWidth: 70,
       resizeMode: Image.resizeMode.contain,
     },
     backgroundIcon: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 80,
+      maxWidth: 70,
       resizeMode: Image.resizeMode.contain,
     },
       container: {
@@ -90,7 +90,7 @@ export default class washApp extends Component {
       view: {
         backgroundColor: '#1AAEED',
         flex: 1,
-        paddingBottom: 70
+        paddingBottom: 80
       },
 
       title: {

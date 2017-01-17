@@ -8,6 +8,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
@@ -22,27 +24,36 @@ export default class DatePickup extends Component {
   //   }
   // }
 
-  // componentWillMount() {
-  //   const userData = this.props.firebase.auth().currentUser;
-
-  //   this.setState({
-  //     uid: userData.uid
-  //   });
-  // }
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false
+    })
+    this.setState({
+      uid: userData.uid
+    });
+  }
 
   handleSubmit(){
-    // this.setState({
-    //   loading: true
-    // });
+    this.setState({
+      loading: true
+    });
 
-            console.log(this.state.date.toLocaleDateString())
-                    console.log(this.state.date.toLocaleTimeString())
+      console.log(this.state.date.toLocaleDateString())
+      console.log(this.state.date.toLocaleTimeString())
+      console.log(this.state.date)
 
-    // this.props.firebase.database()
-    //   .ref('/users/'+this.state.uid+'/orders')
-    //   .push({
+    this.props.firebase.database()
+      .ref('/users/'+this.state.uid+'/orders')
+      .push({
+          pickupDate: this.state.date.toLocaleDateString(),
+          pickupTime: this.state.date.toLocaleTimeString(),
+          pickup: this.state.date
+      })
 
-    //   })
+    this.props.navigator.push({
+      component: Dropoff
+    })
 
   }
 
