@@ -8,6 +8,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
@@ -41,13 +43,17 @@ export default class DatePickup extends Component {
       console.log(this.state.date.toLocaleTimeString())
       console.log(this.state.date)
 
-  //   // this.props.firebase.database()
-  //   //   .ref('/users/'+this.state.uid+'/orders')
-  //   //   .push({
-  //   //       pickup: this.state.date.toLocaleDateString() +
-  //   //               ' ' +
-  //   //               this.state.date.toLocaleTimeString()
-  //   //   })
+    this.props.firebase.database()
+      .ref('/users/'+this.state.uid+'/orders')
+      .push({
+          pickupDate: this.state.date.toLocaleDateString(),
+          pickupTime: this.state.date.toLocaleTimeString(),
+          pickup: this.state.date
+      })
+
+    this.props.navigator.push({
+      component: Dropoff
+    })
 
   }
 
