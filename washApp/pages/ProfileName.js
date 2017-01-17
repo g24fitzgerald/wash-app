@@ -29,12 +29,13 @@ export default class ProfileName extends Component {
   }
 
   componentWillMount() {
-    const userData = this.props.firebase.auth().currentUser;
-
-    this.setState({
-      email: userData.email,
-      uid: userData.uid
-    });
+    this.props.firebase.auth().onAuthStateChanged(user => this.setState({user}));
+    // const userData = this.props.firebase.auth().currentUser;
+    //
+    // this.setState({
+    //   email: userData.email,
+    //   uid: userData.uid
+    // });
   }
 
   handleSubmit(e){
@@ -43,22 +44,23 @@ export default class ProfileName extends Component {
     })
 
     this.props.firebase.database()
-      .ref('/users/'+this.state.uid)
+      .ref('/users/'+this.state.user.uid)
       .set({
 
         firstName: this.state.firstName,
         lastnName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
-        email: this.state.email
-      }).then(() => {
-        this.setState({
-          firstName: '',
-          lastName: '',
-          phoneNumber: '',
-          user: '',
-          loading: false
-        });
-      })
+        email: this.state.user.email
+      })//.then(() => {
+      //   this.setState({
+      //     firstName: '',
+      //     lastName: '',
+      //     phoneNumber: '',
+      //     user: '',
+      //     email:'',
+      //     loading: false
+      //   });
+      //})
     this.props.navigator.push({
       component: ProfileAddress
     })
@@ -83,7 +85,7 @@ render() {
           style={styles.textInput}
           onChangeText={(text) => this.setState({phoneNumber: text})}
           value={this.state.phoneNumber}
-          placeholder={"Phone Number"} />        
+          placeholder={"Phone Number"} />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Next</Text>
         </TouchableHighlight>
@@ -104,4 +106,3 @@ render() {
 
 
 AppRegistry.registerComponent('ProfileName', () => ProfileName);
-
