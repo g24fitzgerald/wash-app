@@ -21,8 +21,6 @@ export default class DatePickup extends Component {
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
   };
 
-
-
   state = {
     date: this.props.date,
     timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
@@ -47,56 +45,51 @@ export default class DatePickup extends Component {
     this.setState({
       uid: userData.uid
     });
+    console.log('this is this.props: ', this.props);
   }
-
+  // this.dataSetter.bind(this)
   handleSubmit(){
-    this.setState({
-      loading: true
-    });
-
-    this.props.dataSetter({ pickup: this.state.date })
-
-
-
-    this.props.navigator.push({
-      component: Dropoff
-    })
-  }
-
-  render() {
-    // Ideally, the timezone input would be a picker rather than a
-    // text input, but we don't have any pickers yet :(
-    return (
-      <View style={stylesPicker.view}>
-          <Image
-          source={require('../images/wf.png')}
-          style={stylesPicker.backgroundLogo} />
-
-      <View style={stylesPicker.pickerContainer}>
-
-        <Heading label="Select your pickup date" />
-        <DatePickerIOS
-          date={this.state.date}
-          mode="datetime"
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onDateChange}
-        />
-
-        <WithLabel label="Pickup Time:">
-          <Text>{
-            this.state.date.toLocaleDateString() +
-            ' ' +
-            this.state.date.toLocaleTimeString()
-          }</Text>
-        </WithLabel>
-        <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={stylesPicker.primaryButton}>
-          <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
-        </TouchableHighlight>
+      this.setState({
+        loading: true
+      });
+      this.props.dataSetter({
+        pickup: this.state.date
+      }).bind(this)
+      this.props.navigator.push({
+        component: Dropoff
+      })
+    }
+    render() {
+      // Ideally, the timezone input would be a picker rather than a
+      // text input, but we don't have any pickers yet :(
+      return (
+        <View style={stylesPicker.view}>
+            <Image
+            source={require('../images/wf.png')}
+            style={stylesPicker.backgroundLogo} />
+        <View style={stylesPicker.pickerContainer}>
+          <Heading label="Select your pickup date" />
+          <DatePickerIOS
+            date={this.state.date}
+            mode="datetime"
+            timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+            onDateChange={this.onDateChange}
+          />
+          <WithLabel label="Pickup Time:">
+            <Text>{
+              this.state.date.toLocaleDateString() +
+              ' ' +
+              this.state.date.toLocaleTimeString()
+            }</Text>
+          </WithLabel>
+          <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={stylesPicker.primaryButton}>
+            <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
+          </TouchableHighlight>
+        </View>
       </View>
-    </View>
-    );
+      );
+    }
   }
-}
 
 class WithLabel extends Component {
   render() {

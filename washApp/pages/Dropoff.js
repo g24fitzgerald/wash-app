@@ -42,7 +42,7 @@ export default class DateDropoff extends Component {
     this.setState({
       loading: false,
       uid: userData.uid,
-      pickup: dataSetter()
+      pickup: dataGetter()
     })
   }
 

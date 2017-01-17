@@ -31,6 +31,7 @@ import { firebase } from './utils/firebase'
 import styles from './styles/common-styles';
 
 export default class washApp extends Component {
+  //called and is passed info from pickup
   dataSetter(info){
     this.setState({ wizardData: info })
 
@@ -44,7 +45,10 @@ export default class washApp extends Component {
   render(){
       return (
         <Navigator
-        initialRoute={{component: Home}}
+        initialRoute={{
+          component: Home,
+          passProps: { parentFunc: () =>  this.dataSetter()  }
+                      }}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
