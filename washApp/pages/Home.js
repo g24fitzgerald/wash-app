@@ -56,7 +56,8 @@ const pageStyles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     maxWidth: 500,
-    resizeMode: Image.resizeMode.cover,
+
+    resizeMode: Image.resizeMode.contain,
   },
   backgroundLogo: {
     justifyContent: 'center',
@@ -70,7 +71,9 @@ const pageStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    maxWidth: 400,
+    maxWidth: 330,
+    marginTop: 20,
+    marginLeft: 2,
     resizeMode: Image.resizeMode.cover,
   },
   container: {
