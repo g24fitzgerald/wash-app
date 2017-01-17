@@ -54,18 +54,6 @@ export default class ProfileAddress extends Component {
         city: this.state.city,
         state: this.state.state,
         zip: this.state.zip
-      }).then(() => {
-        this.setState({
-          user: '',
-          uid: '',
-          email: '',
-          address1: '',
-          address2: '',
-          city: '',
-          state: '',
-          zip: '',
-          loading: false
-        });
       })
     this.props.navigator.push({
       component: Dashboard
