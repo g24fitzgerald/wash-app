@@ -49,8 +49,8 @@ export default class washApp extends Component {
               </View>
             </View>
           );
+        }
       }
-  }
 
   const styles = StyleSheet.create({
     backgroundLogo: {

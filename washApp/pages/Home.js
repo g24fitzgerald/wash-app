@@ -37,8 +37,8 @@ export default class Home extends Component {
          <Image
           source={require('../images/skyline.png')}
           style={pageStyles.backgroundImg} />
-        <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Go to Login</Text>
+        <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.primaryButtonText}>LOGIN</Text>
         </TouchableHighlight>
         </View>
         <View style={pageStyles.loginFooter}>
@@ -118,6 +118,13 @@ const pageStyles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
     color: '#1AAEED'
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 20,
+    color: 'white',
+    fontWeight: 'bold'
   }
 });
 
