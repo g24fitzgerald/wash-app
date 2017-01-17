@@ -72,7 +72,9 @@ export default class Login extends Component {
         this.setState({
                 loading: false
               });
-
+        this.props.navigator.push({
+                component: Dashboard
+              });
       }
     ).catch((error) =>
         {
@@ -82,9 +84,7 @@ export default class Login extends Component {
         alert('Login Failed. Please try again');
     });
 
-            this.props.navigator.push({
-                component: Dashboard
-              });
+
   }
 
   // Go to the signup page

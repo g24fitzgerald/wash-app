@@ -24,19 +24,14 @@ export default class ProfileName extends Component {
       uid: '',
       firstName: '',
       lastName: '',
+      email:'',
       phoneNumber: ''
     };
   }
 
   componentWillMount() {
-    this.props.firebase.auth().onAuthStateChanged(user => this.setState({user}));
-    // const userData = this.props.firebase.auth().currentUser;
-    //
-    // this.setState({
-    //   email: userData.email,
-    //   uid: userData.uid
-    // });
-  }
+    this.props.firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+    }
 
   handleSubmit(e){
     this.setState({
@@ -51,16 +46,8 @@ export default class ProfileName extends Component {
         lastnName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
         email: this.state.user.email
-      })//.then(() => {
-      //   this.setState({
-      //     firstName: '',
-      //     lastName: '',
-      //     phoneNumber: '',
-      //     user: '',
-      //     email:'',
-      //     loading: false
-      //   });
-      //})
+      });
+
     this.props.navigator.push({
       component: ProfileAddress
     })
