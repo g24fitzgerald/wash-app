@@ -27,21 +27,23 @@ export default class Home extends Component {
       <View style={pageStyles.view}>
           <Image
           source={require('../images/logo_name.png')}
-          style={pageStyles.backgroundImg} />
+          style={pageStyles.backgroundLogo} />
         <View style={pageStyles.loginIcons}>
-
+          <Image
+          source={require('../images/launder_icons.png')}
+          style={pageStyles.backgroundIcon} />
         </View>
         <View style={pageStyles.loginHero}>
-         <Image 
+         <Image
           source={require('../images/skyline.png')}
           style={pageStyles.backgroundImg} />
-        <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Go to Login</Text>
+        <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.primaryButtonText}>LOGIN</Text>
         </TouchableHighlight>
         </View>
         <View style={pageStyles.loginFooter}>
           <Text style={pageStyles.footerText}>How It Works</Text>
-          
+
         </View>
       </View>
     );
@@ -49,12 +51,30 @@ export default class Home extends Component {
 }
 
 const pageStyles = StyleSheet.create({
-  backgroundImg: { 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    flex: 1, 
-    resizeMode: Image.resizeMode.contain,
+  backgroundImg: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    maxWidth: 500,
 
+    resizeMode: Image.resizeMode.contain,
+  },
+  backgroundLogo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    maxWidth: 350,
+    marginLeft: 30,
+    resizeMode: Image.resizeMode.stretch,
+  },
+  backgroundIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    maxWidth: 330,
+    marginTop: 20,
+    marginLeft: 2,
+    resizeMode: Image.resizeMode.cover,
   },
   container: {
     flex: 1,
@@ -101,6 +121,13 @@ const pageStyles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
     color: '#1AAEED'
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold'
   }
 });
 
