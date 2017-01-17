@@ -13,10 +13,16 @@ import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
+<<<<<<< HEAD
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
   };
+=======
+
+  // constructor(props) {
+  //   super(props);
+>>>>>>> 3c3cb6bb8aa2d28783360203834fcb5ef99189a6
 
 
   state = {
@@ -66,6 +72,52 @@ export default class DatePickup extends Component {
       component: Dropoff
     })
   }
+<<<<<<< HEAD
+=======
+
+
+  static defaultProps = {
+    date: new Date(),
+    timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
+  };
+
+  state = {
+    date: this.props.date,
+    timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
+  };
+
+  onDateChange = (date) => {
+    this.setState({date: date});
+  };
+
+  onTimezoneChange = (event) => {
+    var offset = parseInt(event.nativeEvent.text, 10);
+    if (isNaN(offset)) {
+      return;
+    }
+    this.setState({timeZoneOffsetInHours: offset});
+  };
+
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false
+    })
+    this.setState({
+      uid: userData.uid
+    });
+  }
+
+  handleSubmit(){
+    this.setState({
+      loading: true
+    });
+
+    this.props.storingPickup();
+
+  }
+
+>>>>>>> 3c3cb6bb8aa2d28783360203834fcb5ef99189a6
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
