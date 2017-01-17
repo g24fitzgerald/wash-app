@@ -14,6 +14,51 @@ import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
 
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     loading: false,
+  //     uid: '',
+  //     date: ''
+
+  //   }
+  // }
+
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false
+    })
+    this.setState({
+      uid: userData.uid
+    });
+  }
+
+  handleSubmit(){
+    this.setState({
+      loading: true
+    });
+
+      console.log(this.state.date.toLocaleDateString())
+      console.log(this.state.date.toLocaleTimeString())
+      console.log(this.state.date)
+
+    this.props.firebase.database()
+      .ref('/users/'+this.state.uid+'/orders')
+      .push({
+          pickupDate: this.state.date.toLocaleDateString(),
+          pickupTime: this.state.date.toLocaleTimeString(),
+          pickup: this.state.date
+      })
+
+    this.props.navigator.push({
+      component: Dropoff
+    })
+
+  }
+
+
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -154,5 +199,13 @@ var stylesPicker = StyleSheet.create({
   heading: {
     fontWeight: '500',
     fontSize: 14,
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
 });
