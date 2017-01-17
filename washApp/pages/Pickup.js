@@ -11,20 +11,22 @@ import {
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
     
-    this.state = {
-      loading: false,
-      uid: '',
-      date: ''
+  //   this.state = {
+  //     loading: false,
+  //     uid: '',
+  //     date: ''
 
-    }
-  }
+  //   }
+  // }
 
   componentWillMount() {
     const userData = this.props.firebase.auth().currentUser;
-
+    this.setState({
+      loading: false
+    })
     this.setState({
       uid: userData.uid
     });
@@ -37,12 +39,15 @@ export default class DatePickup extends Component {
 
       console.log(this.state.date.toLocaleDateString())
       console.log(this.state.date.toLocaleTimeString())
+      console.log(this.state.date)
 
-    this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders')
-      .push({
-          pickup: this.state.date.toLocaleDateString() + ' ' + this.state.date.toLocaleTimeString()
-      })
+  //   // this.props.firebase.database()
+  //   //   .ref('/users/'+this.state.uid+'/orders')
+  //   //   .push({
+  //   //       pickup: this.state.date.toLocaleDateString() +
+  //   //               ' ' +
+  //   //               this.state.date.toLocaleTimeString()
+  //   //   })
 
   }
 
