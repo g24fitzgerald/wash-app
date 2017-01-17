@@ -13,7 +13,7 @@ import styles from '../styles/common-styles';
 export default class DatePickup extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       loading: false,
       uid: '',
@@ -38,11 +38,16 @@ export default class DatePickup extends Component {
       console.log(this.state.date.toLocaleDateString())
       console.log(this.state.date.toLocaleTimeString())
 
-    this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders')
-      .push({
-          pickup: this.state.date.toLocaleDateString() + ' ' + this.state.date.toLocaleTimeString()
-      })
+    let pickupOrderDate = this.state.date;
+    console.log(pickupOrderDate);
+    // let pickupOrderTime = this.state.date.toLocaleTimeString();
+
+    // this.props.firebase.database()
+    //   .ref('/users/'+this.state.uid+'/orders')
+    //   .push({
+    //       pickupDate: pickupOrderDate,
+    //       // pickupTime: pickupOrderTime
+    //   })
 
   }
 
