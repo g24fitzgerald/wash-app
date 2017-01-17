@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableHighlight,
   View,
+  Image
 } from 'react-native';
 
 import Dropoff from './Dropoff';
@@ -66,6 +67,11 @@ export default class DatePickup extends Component {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
     return (
+      <View style={stylesPicker.view}>
+          <Image
+          source={require('../images/wf.png')}
+          style={stylesPicker.backgroundLogo} />
+
       <View style={stylesPicker.pickerContainer}>
 
         <Heading label="Select your pickup date" />
@@ -83,10 +89,11 @@ export default class DatePickup extends Component {
             this.state.date.toLocaleTimeString()
           }</Text>
         </WithLabel>
-        <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Submit Pickup Time</Text>
+        <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={stylesPicker.primaryButton}>
+          <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
         </TouchableHighlight>
       </View>
+    </View>
     );
   }
 }
@@ -130,6 +137,19 @@ exports.examples = [
 }];
 
 var stylesPicker = StyleSheet.create({
+  backgroundLogo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    maxWidth: 350,
+    marginLeft: 20,
+    resizeMode: Image.resizeMode.cover,
+  },
+  view: {
+    backgroundColor: 'white',
+    flex: 1,
+    paddingBottom: 80
+  },
   pickerContainer: {
     marginTop: 50,
     justifyContent: 'center'

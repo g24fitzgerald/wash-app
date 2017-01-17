@@ -55,8 +55,7 @@ const pageStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    maxWidth: 500,
-
+    maxWidth: 380,
     resizeMode: Image.resizeMode.contain,
   },
   backgroundLogo: {
@@ -124,7 +123,7 @@ const pageStyles = StyleSheet.create({
   },
   primaryButtonText: {
     backgroundColor: '#1AAEED',
-    margin: 10,
+    margin: 20,
     padding: 15,
     color: 'white',
     fontWeight: 'bold'
