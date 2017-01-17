@@ -42,14 +42,15 @@ export default class DateDropoff extends Component {
     this.setState({
       loading: false,
       uid: userData.uid,
-      pickup: dataSetter()
+      pickup: ''
     })
+    console.log(this.props)
   }
-
+//insert timestamp on handle submit firebase push
   handleSubmit(){
     this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders')
-      .push({
+      .ref('/users/'+this.state.uid+'/orders/')
+      .set({
             pickupDate: this.state.date.toLocaleDateString(),
             pickupTime: this.state.date.toLocaleTimeString(),
             pickup: this.state.date

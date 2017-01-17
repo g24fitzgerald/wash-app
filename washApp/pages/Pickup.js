@@ -39,6 +39,9 @@ export default class DatePickup extends Component {
     }
     this.setState({timeZoneOffsetInHours: offset});
   };
+
+
+
   componentWillMount() {
     const userData = this.props.firebase.auth().currentUser;
     this.setState({
@@ -49,18 +52,17 @@ export default class DatePickup extends Component {
     });
   }
 
-  handleSubmit(){
+  handleSubmit(e){
     this.setState({
       loading: true
-    });
-
-    this.props.dataSetter({ pickup: this.state.date })
-
-
+    })
 
     this.props.navigator.push({
-      component: Dropoff
+      component: Dropoff,
+      passProps: { pickup: e }
     })
+
+    console.log(e)
   }
 
   render() {
@@ -89,7 +91,7 @@ export default class DatePickup extends Component {
             this.state.date.toLocaleTimeString()
           }</Text>
         </WithLabel>
-        <TouchableHighlight onPress={ this.handleSubmit.bind(this) } style={stylesPicker.primaryButton}>
+        <TouchableHighlight onPress={ ()=> this.handleSubmit(this.state.date) } style={stylesPicker.primaryButton}>
           <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
         </TouchableHighlight>
       </View>

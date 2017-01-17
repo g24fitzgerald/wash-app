@@ -23,7 +23,7 @@ import { REACT_APP_API_KEY,
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Home';
+import Home from './pages/Process';
 
 import { firebase } from './utils/firebase'
 
@@ -31,10 +31,7 @@ import { firebase } from './utils/firebase'
 import styles from './styles/common-styles';
 
 export default class washApp extends Component {
-  dataSetter(info){
-    this.setState({ wizardData: info })
 
-  }
 
   dataGetter(){
     return this.state.wizardData
@@ -44,7 +41,7 @@ export default class washApp extends Component {
   render(){
       return (
         <Navigator
-        initialRoute={{component: Home}}
+        initialRoute={{component: Home }}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
@@ -52,7 +49,7 @@ export default class washApp extends Component {
           if(route.component){
             // Pass the navigator the the component so it can navigate as well.
             // Pass firebaseApp so it can make calls to firebase.
-            return React.createElement(route.component, { navigator, firebase});
+            return React.createElement(route.component, { navigator, firebase},{ ...route.passProps });
           }
         }} />
       );
