@@ -90,6 +90,7 @@ export default class washApp extends Component {
       view: {
         backgroundColor: '#1AAEED',
         flex: 1,
+        paddingBottom: 70
       },
 
       title: {
