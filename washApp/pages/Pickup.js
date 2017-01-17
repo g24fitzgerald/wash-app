@@ -15,7 +15,7 @@ import styles from '../styles/common-styles';
 export default class DatePickup extends Component {
   // constructor(props) {
   //   super(props);
-    
+
   //   this.state = {
   //     loading: false,
   //     uid: '',
@@ -178,5 +178,13 @@ var stylesPicker = StyleSheet.create({
   heading: {
     fontWeight: '500',
     fontSize: 14,
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
 });
