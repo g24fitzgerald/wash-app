@@ -61,8 +61,6 @@ export default class DatePickup extends Component {
       component: Dropoff,
       passProps: { pickup: e }
     })
-
-    console.log(e)
   }
 
   render() {
