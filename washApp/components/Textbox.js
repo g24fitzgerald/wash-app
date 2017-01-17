@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { TextInput, View } from 'react-native';
-
+import styles from '../styles/common-styles.js';
 export default class TextBox extends Component {
   constructor(props) {
     super(props);
     this.state = { text: 'input special instructions here' };
   }
-
   render() {
     return (
       <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1} }
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
+        style={styles.textInputBox}
+        onChangeText={(text) => this.setState({instructions: text})}
+        value={this.state.instructions}
+        placeholder={"input special instructions"} />
     );
   }
 }
