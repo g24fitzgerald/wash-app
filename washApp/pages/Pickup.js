@@ -13,6 +13,7 @@ import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
+
   // constructor(props) {
   //   super(props);
 
@@ -57,6 +58,7 @@ export default class DatePickup extends Component {
 
   }
 
+
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -78,6 +80,25 @@ export default class DatePickup extends Component {
     }
     this.setState({timeZoneOffsetInHours: offset});
   };
+
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false
+    })
+    this.setState({
+      uid: userData.uid
+    });
+  }
+
+  handleSubmit(){
+    this.setState({
+      loading: true
+    });
+
+    this.props.storingPickup();
+
+  }
 
   render() {
     // Ideally, the timezone input would be a picker rather than a
