@@ -36,15 +36,14 @@ export default class washApp extends Component {
                 <Image
                 source={require('../images/calendar.png')}
                 style={styles.backgroundCalendar} />
-                <Text style={styles.dashText}>Schedule Pickup</Text>
+                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
+                </TouchableHighlight>
                 <Image
                 source={require('../images/account_icon.png')}
                 style={styles.backgroundIcon} />
                 <Text style={styles.dashText}>Account</Text>
                     <View style={styles.column}>
-        <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>Pickup</Text>
-        </TouchableHighlight>
                     </View>
               </View>
             </View>
@@ -106,6 +105,13 @@ export default class washApp extends Component {
         justifyContent: 'center'
       },
       dashText: {
+        color: '#1AAEED',
+        fontSize: 16,
+        width: 150,
+        textAlign: 'center',
+        fontWeight: 'bold'
+      },
+      transparentButtonText: {
         color: '#1AAEED',
         fontSize: 16,
         width: 150,
