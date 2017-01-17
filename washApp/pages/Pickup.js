@@ -8,49 +8,11 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
 
 export default class DatePickup extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      uid: '',
-      date: ''
-
-    }
-  }
-
-  componentWillMount() {
-    const userData = this.props.firebase.auth().currentUser;
-
-    this.setState({
-      uid: userData.uid
-    });
-  }
-
-  handleSubmit(){
-    this.setState({
-      loading: true
-    });
-
-      console.log(this.state.date.toLocaleDateString())
-      console.log(this.state.date.toLocaleTimeString())
-
-    let pickupOrderDate = this.state.date;
-    console.log(pickupOrderDate);
-    // let pickupOrderTime = this.state.date.toLocaleTimeString();
-
-    // this.props.firebase.database()
-    //   .ref('/users/'+this.state.uid+'/orders')
-    //   .push({
-    //       pickupDate: pickupOrderDate,
-    //       // pickupTime: pickupOrderTime
-    //   })
-
-  }
-
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -72,7 +34,37 @@ export default class DatePickup extends Component {
     }
     this.setState({timeZoneOffsetInHours: offset});
   };
+  componentWillMount() {
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false
+    })
+    this.setState({
+      uid: userData.uid
+    });
+  }
 
+  handleSubmit(){
+    this.setState({
+      loading: true
+    });
+
+      console.log(this.state.date.toLocaleDateString())
+      console.log(this.state.date.toLocaleTimeString())
+      console.log(this.state.date)
+
+    this.props.firebase.database()
+      .ref('/users/'+this.state.uid+'/orders')
+      .push({
+          pickupDate: this.state.date.toLocaleDateString(),
+          pickupTime: this.state.date.toLocaleTimeString(),
+          pickup: this.state.date
+      })
+
+    this.props.navigator.push({
+      component: Dropoff
+    })
+  }
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
