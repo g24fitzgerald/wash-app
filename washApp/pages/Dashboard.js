@@ -1,13 +1,15 @@
 'use strict'
 import React, { Component } from 'react';
 
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
-  ActivityIndicator
+  ActivityIndicator,
+  Image
 } from 'react-native';
 
 import Pickup from './Pickup'
@@ -23,10 +25,23 @@ export default class washApp extends Component {
   render() {
           return (
             <View style={styles.view}>
-              <Text style={styles.title}>Launder This</Text>
+                <Image
+                source={require('../images/logo_name.png')}
+                style={styles.backgroundLogo} />
               <View style={styles.container}>
-                    <View style={styles.row}>
-                      <Text style={styles.dashText}>Dashboard Icons</Text>
+                <Image
+                source={require('../images/timer.png')}
+                style={styles.backgroundTimer} />
+                <Text style={styles.dashText}>Order Status</Text>
+                <Image
+                source={require('../images/calendar.png')}
+                style={styles.backgroundCalendar} />
+                <Text style={styles.dashText}>Schedule Pickup</Text>
+                <Image
+                source={require('../images/account_icon.png')}
+                style={styles.backgroundIcon} />
+                <Text style={styles.dashText}>Account</Text>
+                    <View style={styles.column}>
         <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
           <Text style={styles.transparentButtonText}>Pickup</Text>
         </TouchableHighlight>
@@ -38,8 +53,37 @@ export default class washApp extends Component {
   }
 
   const styles = StyleSheet.create({
+    backgroundLogo: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 350,
+      marginLeft: 30,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundTimer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 80,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundCalendar: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 80,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundIcon: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 80,
+      resizeMode: Image.resizeMode.contain,
+    },
       container: {
-        flex: 1,
+        flex: 5,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white'
@@ -47,7 +91,6 @@ export default class washApp extends Component {
       view: {
         backgroundColor: '#1AAEED',
         flex: 1,
-        paddingBottom: 50
       },
 
       title: {
@@ -57,15 +100,17 @@ export default class washApp extends Component {
         textAlign: 'center',
         padding: 15
       },
-      row: {
-        flexDirection: 'row',
+      column: {
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
       },
       dashText: {
         color: '#1AAEED',
         fontSize: 16,
-        width:150
+        width: 150,
+        textAlign: 'center',
+        fontWeight: 'bold'
       }
   });
 
