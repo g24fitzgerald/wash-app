@@ -36,7 +36,7 @@ export default class Confirmation extends Component {
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
-            specialIntructions: ''
+            specialIntructions: this.state.instructions
           });
       console.log(this.props);
     this.props.navigator.push({
@@ -48,7 +48,11 @@ export default class Confirmation extends Component {
     return (
       <View style={styles.container}>
         <Heading label="Confirmation" />
-        <TextBox />
+        <TextInput
+          style={styles.textInputBox}
+          onChangeText={(text) => this.setState({instructions: text})}
+          value={this.state.instructions}
+          placeholder={"input special instructions"} />
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup Time: " />
           <Heading label="Drop Off Time: " />
