@@ -44,27 +44,31 @@ export default class DateDropoff extends Component {
       uid: userData.uid,
       pickup: '',
       pickupDate: '',
-      pickupTime: ''
+      pickupTime: '',
+      dropoff: '',
+      dropoffDate: '',
+      dropoffTime: '',
     })
     console.log(this.props)
   }
 
   handleSubmit(e){
-    this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders/')  //inserts timestamp on handle submit firebase push
-      .push({
-            pickup: this.props.children.pickup,
-            pickupDate: this.props.children.pickupDate,
-            pickupTime: this.props.children.pickupTime,
-            dropoffDate: e.toLocaleDateString(),
-            dropoffTime: e.toLocaleTimeString()
-          });
-      console.log(this.props);
-    this.props.navigator.push({
-      component: Confirmation
+    this.setState({
+      loading: true
     })
+    this.props.navigator.push({
+      component: Confirmation,
+      passProps: {
+        pickup: this.props.children.pickup,
+        pickupDate: this.props.children.pickupDate,
+        pickupTime: this.props.children.pickupTime,
+        dropoff: e,
+        dropoffDate: e.toLocaleDateString(),
+        dropoffTime: e.toLocaleTimeString()
+      }
+    })
+    console.log(this.props);
   }
-
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
