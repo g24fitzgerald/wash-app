@@ -37,33 +37,38 @@ export default class DateDropoff extends Component {
     this.setState({timeZoneOffsetInHours: offset});
   };
 
-  componentWillMount(){
+  componentWillMount(){ //set up new component when page is going to load with the following properties set.
     const userData = this.props.firebase.auth().currentUser;
     this.setState({
       loading: false,
       uid: userData.uid,
-      pickup: ''
+      pickup: '',
+      pickupDate: '',
+      pickupTime: '',
+      dropoff: '',
+      dropoffDate: '',
+      dropoffTime: '',
     })
     console.log(this.props)
   }
-//insert timestamp on handle submit firebase push
-  handleSubmit(){
-    this.props.firebase.database()
-      .ref('/users/'+this.state.uid+'/orders/')
-      .set({
-            pickupDate: this.state.date.toLocaleDateString(),
-            pickupTime: this.state.date.toLocaleTimeString(),
-            pickup: this.state.date
-          });
 
-    this.props.navigator.push({
-      component: Confirmation
+  handleSubmit(e){
+    this.setState({
+      loading: true
     })
-
+    this.props.navigator.push({
+      component: Confirmation,
+      passProps: {
+        pickup: this.props.children.pickup,
+        pickupDate: this.props.children.pickupDate,
+        pickupTime: this.props.children.pickupTime,
+        dropoff: e,
+        dropoffDate: e.toLocaleDateString(),
+        dropoffTime: e.toLocaleTimeString()
+      }
+    })
+    console.log(this.props);
   }
-
-
-
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
@@ -90,7 +95,7 @@ export default class DateDropoff extends Component {
             this.state.date.toLocaleTimeString()
           }</Text>
         </WithLabel>
-        <TouchableHighlight style={stylesPicker.primaryButton}>
+        <TouchableHighlight onPress={ ()=> this.handleSubmit(this.state.date) } style={stylesPicker.primaryButton}>
           <Text style={stylesPicker.primaryButtonText}>Submit Drop Off Time</Text>
         </TouchableHighlight>
       </View>
