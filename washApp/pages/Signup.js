@@ -6,6 +6,7 @@ import {
 	   Text,
 	   TextInput,
 	   View,
+		 StyleSheet,
 	   TouchableHighlight,
 	   ActivityIndicator
 } from 'react-native';
@@ -74,12 +75,12 @@ render() {
           value={this.state.password}
           secureTextEntry={true}
           placeholder={"Password"} />
-        <TouchableHighlight onPress={this.signup.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Signup</Text>
+        <TouchableHighlight onPress={this.signup.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.primaryButtonText}>Signup</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={this.login.bind(this)} style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>Go to Login</Text>
+        <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.transparentButton}>
+          <Text style={pageStyles.transparentButtonText}>Go to Login</Text>
         </TouchableHighlight>
 
       </View>;
@@ -95,5 +96,23 @@ render() {
   }
 }
 
+const pageStyles = StyleSheet.create({
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    marginTop: 20,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+});
 
 AppRegistry.registerComponent('Signup', () => Signup);
