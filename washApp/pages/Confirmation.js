@@ -9,9 +9,13 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import Dropoff from './Dropoff';
+import Dashboard from './Dashboard';
+
 import styles from '../styles/common-styles';
 import TextBox from  '../components/Textbox';
-import Dashboard from './Dashboard';
+
 export default class Confirmation extends Component {
 
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
@@ -49,6 +53,11 @@ export default class Confirmation extends Component {
     })
     console.log(this.props)  //TEST
   }
+
+  handleBack(){
+    this.props.navigator.pop();
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -67,6 +76,9 @@ export default class Confirmation extends Component {
         </View>
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Confirm Order</Text>
+        </TouchableHighlight>
+          <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
     );

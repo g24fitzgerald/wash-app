@@ -1,100 +1,132 @@
-// 'use strict';
-// import React, { Component } from 'react';
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
+import React, { Component } from 'react';
 
-// import {
-//   AppRegistry,
-//   StyleSheet,
-//   Text,
-//   View,
-//   Image,
-//   AsyncStorage
-// } from 'react-native';
 
-// import Button from '../components/Button';
-// import Header from '../components/Header';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  ActivityIndicator,
+  Image
+} from 'react-native';
 
-// import Login from './Login';
+import Pickup from './Pickup';
+import OrderStatus from './OrderStatus';
 
-// import styles from '../styles/common-styles.js';
+export default class Account extends Component {
 
-// import firebase from '../utils/firebase'
-// import { REACT_APP_API_KEY, 
-//          REACT_APP_AUTH_DOMAIN, 
-//          REACT_APP_DATABASE_URL, 
-//          REACT_APP_STORAGE_BUCKET,
-//          REACT_APP_MESSAGING_SENDER_ID } from 'react-native-dotenv'
+  goToPickup(){
+    this.props.navigator.push({
+      component: Pickup
+    })
+  }
 
-// let app = new firebase("washapp-99390.firebaseapp.com")
+  goToOrderStatus(){
+    this.props.navigator.push({
+      component: OrderStatus
+    })
+  }
+  render() {
+          return (
+            <View style={styles.view}>
+                <Image
+                source={require('../images/logo_name.png')}
+                style={styles.backgroundLogo} />
+              <View style={styles.container}>
+                <Image
+                source={require('../images/timer.png')}
+                style={styles.backgroundTimer} />
+                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.dashText}>Order Status</Text>
+                </TouchableHighlight>
+                <Image
+                source={require('../images/calendar.png')}
+                style={styles.backgroundCalendar} />
+                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
+                </TouchableHighlight>
+                <Image
+                source={require('../images/account_icon.png')}
+                style={styles.backgroundIcon} />
+                <Text style={styles.dashText}>Account</Text>
+                    <View style={styles.column}>
+                    </View>
+              </View>
+            </View>
+          );
+        }
+      }
 
-// export default class account extends Component {
+  const styles = StyleSheet.create({
+    backgroundLogo: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 350,
+      marginLeft: 30,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundTimer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 70,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundCalendar: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 70,
+      resizeMode: Image.resizeMode.contain,
+    },
+    backgroundIcon: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      maxWidth: 100,
+      resizeMode: Image.resizeMode.contain,
+    },
+      container: {
+        flex: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white'
+      },
+      view: {
+        backgroundColor: '#1AAEED',
+        flex: 1,
+        paddingBottom: 80
+      },
 
-//   constructor(props){
+      title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#afeeee',
+        textAlign: 'center',
+        padding: 15
+      },
+      column: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      dashText: {
+        color: '#1AAEED',
+        fontSize: 16,
+        width: 150,
+        textAlign: 'center',
+        fontWeight: 'bold'
+      },
+      transparentButtonText: {
+        color: '#1AAEED',
+        fontSize: 16,
+        width: 150,
+        textAlign: 'center',
+        fontWeight: 'bold'
+      }
+  });
 
-//     super(props);
-//     this.state = {
-//       loaded: false,
-//     }
-
-//   }
-
-//   componentWillMount(){
-
-//     AsyncStorage.getItem('user_data').then((user_data_json) => {
-//       let user_data = JSON.parse(user_data_json);
-//       this.setState({
-//         user: user_data,
-//         loaded: true
-//       });
-//     });
-
-//   }
-
-//   render(){
-
-//     return (
-//       <View style={styles.container}>
-//         <Header text="Account" loaded={this.state.loaded} />  
-//         <View style={styles.body}>
-//         {
-//           this.state.user &&
-//             <View style={styles.body}>
-//               <View style={page_styles.email_container}>
-//                 <Text style={page_styles.email_text}>{this.state.user.password.email}</Text>
-//               </View>
-//               <Image
-//                 style={styles.image}
-//                 source={{uri: this.state.user.password.profileImageURL}}
-//               />
-//               <Button
-//                   text="Logout"
-//                   onpress={this.logout.bind(this)}
-//                   button_styles={styles.primary_button}
-//                   button_text_styles={styles.primary_button_text} />
-//             </View>
-//         }
-//         </View>
-//       </View>
-//     );
-//   }
-
-//   logout(){
-
-//     AsyncStorage.removeItem('user_data').then(() => {    
-//       app.unauth();
-//       this.props.navigator.push({
-//         component: Login
-//       });
-//     });
-
-//   }
-
-// }
-
-// const page_styles = StyleSheet.create({
-//   email_container: {
-//     padding: 20
-//   },
-//   email_text: {
-//     fontSize: 18
-//   }
-// });
+AppRegistry.registerComponent('washApp', () => washApp);

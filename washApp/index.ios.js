@@ -35,7 +35,9 @@ export default class washApp extends Component {
   render(){
       return (
         <Navigator
-        initialRoute={{component: Home }}
+        initialRoute={{
+            component: Home,
+             }}
 
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
