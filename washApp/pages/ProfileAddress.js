@@ -1,4 +1,4 @@
-'use strict';
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 
 import {
@@ -84,12 +84,12 @@ render() {
           style={styles.textInput}
           onChangeText={(text) => this.setState({state: text})}
           value={this.state.state}
-          placeholder={"State"} />    
+          placeholder={"State"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({zip: text})}
           value={this.state.zip}
-          placeholder={"Zip"} />        
+          placeholder={"Zip"} />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Next</Text>
         </TouchableHighlight>
@@ -110,4 +110,3 @@ render() {
 
 
 AppRegistry.registerComponent('ProfileAddress', () => ProfileAddress);
-

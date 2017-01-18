@@ -1,5 +1,8 @@
+
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   StyleSheet,
   Text,
   TextInput,
@@ -10,6 +13,7 @@ import styles from '../styles/common-styles';
 import TextBox from  '../components/Textbox';
 import Dashboard from './Dashboard';
 export default class Confirmation extends Component {
+
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
     const userData = this.props.firebase.auth().currentUser;
     this.setState({
@@ -36,10 +40,10 @@ export default class Confirmation extends Component {
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
-            specialInstructions: this.state.instructions//state was set onChange of text input
+            specialInstructions: this.state.specialInstructions//state was set onChange of text input
 
           });
-      console.log(this.props);
+    alert('Thanks! Order Confirmed')
     this.props.navigator.push({ //dictates which page the navigator will display next
       component: Dashboard
     })
@@ -51,12 +55,12 @@ export default class Confirmation extends Component {
         <Heading label="Confirmation" />
         <TextInput
           style={styles.textInputBox}
-          onChangeText={(text) => this.setState({instructions: text})}
-          value={this.state.instructions}
+          onChangeText={(text) => this.setState({specialInstructions: text})}
+          value={this.state.specialInstructions}
           multiline={true}
           placeholder={"input special instructions"} />
         <View style={stylesConfirm.pickupWindow}>
-          <Heading label="Pickup"/>  
+          <Heading label="Pickup"/>
             <Text style={styles.transparentButtonText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }</Text>
           <Heading label="Drop Off"/>
             <Text style={styles.transparentButtonText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
@@ -91,3 +95,6 @@ const stylesConfirm = StyleSheet.create({
     margin: 20
   }
 });
+
+AppRegistry.registerComponent('Confirmation', () => Confirmation);
+

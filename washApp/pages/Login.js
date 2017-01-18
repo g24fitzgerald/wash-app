@@ -1,4 +1,4 @@
-'use strict';
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import {
   AppRegistry,
   StyleSheet,
@@ -95,6 +95,7 @@ export default class Login extends Component {
   }
 }
 
+<<<<<<< HEAD
 const pageStyles = StyleSheet.create({
   primaryButtonText: {
     backgroundColor: '#1AAEED',
@@ -116,4 +117,6 @@ const pageStyles = StyleSheet.create({
 
 });
 
+=======
+>>>>>>> c4cf9ba8cf53c7392a9d061957ca2094388dbda6
 AppRegistry.registerComponent('Login', () => Login);

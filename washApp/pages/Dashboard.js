@@ -1,4 +1,4 @@
-'use strict'
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 
 
@@ -12,16 +12,22 @@ import {
   Image
 } from 'react-native';
 
-import Pickup from './Pickup'
+import Pickup from './Pickup';
+import OrderStatus from './OrderStatus';
 
 export default class washApp extends Component {
 
   goToPickup(){
-        this.props.navigator.push({
+    this.props.navigator.push({
       component: Pickup
     })
   }
 
+  goToOrderStatus(){
+    this.props.navigator.push({
+      component: OrderStatus
+    })
+  }
   render() {
           return (
             <View style={styles.view}>
@@ -32,7 +38,9 @@ export default class washApp extends Component {
                 <Image
                 source={require('../images/timer.png')}
                 style={styles.backgroundTimer} />
-                <Text style={styles.dashText}>Order Status</Text>
+                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.dashText}>Order Status</Text>
+                </TouchableHighlight>
                 <Image
                 source={require('../images/calendar.png')}
                 style={styles.backgroundCalendar} />
@@ -121,4 +129,4 @@ export default class washApp extends Component {
       }
   });
 
-AppRegistry.registerComponent('washApp', () => washApp); 
+AppRegistry.registerComponent('washApp', () => washApp);
