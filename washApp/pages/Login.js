@@ -95,7 +95,7 @@ export default class Login extends Component {
   }
 }
 
-<<<<<<< HEAD
+
 const pageStyles = StyleSheet.create({
   primaryButtonText: {
     backgroundColor: '#1AAEED',
@@ -117,6 +117,4 @@ const pageStyles = StyleSheet.create({
 
 });
 
-=======
->>>>>>> c4cf9ba8cf53c7392a9d061957ca2094388dbda6
 AppRegistry.registerComponent('Login', () => Login);
