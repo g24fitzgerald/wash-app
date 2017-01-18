@@ -16,6 +16,11 @@ export default class washApp extends Component {
         <Text >
         FAQ
         </Text>
+        <Text style={styles.text}>1. Create an account and schedule a pick-up time for any day of the week between 8am to 8pm. {"\n"}{"\n"}
+2. Schedule a drop-off time for your freshly washed and folded laundry. {"\n"}{"\n"}
+3. Our valet will collect your goods at the requested time and transport to our locally operated facilities. {"\n"}{"\n"}
+4. The cleaning attendants will carefully service your clothes and linen under your specific instructions and preferences. {"\n"}{"\n"}
+5. Once your order has finished, you will receive a notification, and it will be sent out for delivery at the chosen time. </Text>
       </View>
     );
   }
@@ -26,7 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#1AAEED',
   },
 });
 
