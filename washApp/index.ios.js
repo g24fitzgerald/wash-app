@@ -23,7 +23,7 @@ import { REACT_APP_API_KEY,
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Dashboard';
+import Home from './pages/Login';
 
 import { firebase } from './utils/firebase'
 
