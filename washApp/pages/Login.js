@@ -53,10 +53,10 @@ export default class Login extends Component {
     // A simple UI with a toolbar, and content below it.
         return (
                 <View style={styles.container}>
-        <View style={styles.body}>
-          {content}
-        </View>
-      </View>
+                  <View style={styles.body}>
+                    {content}
+                  </View>
+                </View>
                 );
   }
 
@@ -86,7 +86,6 @@ export default class Login extends Component {
 
 
   }
-
   // Go to the signup page
   goToSignup(){
     this.props.navigator.push({

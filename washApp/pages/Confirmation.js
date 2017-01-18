@@ -21,7 +21,7 @@ export default class Confirmation extends Component {
       dropoff: '',
       dropoffDate: '',
       dropoffTime: '',
-      specialIntructions: ''
+      specialInstructions: ''
     })
     console.log(this.props)
   }
@@ -36,7 +36,7 @@ export default class Confirmation extends Component {
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
-            specialIntructions: this.state.instructions
+            specialInstructions: this.state.instructions
           });
       console.log(this.props);
     this.props.navigator.push({
@@ -52,10 +52,13 @@ export default class Confirmation extends Component {
           style={styles.textInputBox}
           onChangeText={(text) => this.setState({instructions: text})}
           value={this.state.instructions}
+          multiline={true}
           placeholder={"input special instructions"} />
         <View style={stylesConfirm.pickupWindow}>
-          <Heading label="Pickup Time: " />
-          <Heading label="Drop Off Time: " />
+          <Heading label="Pickup"/>  
+            <Text style={styles.transparentButtonText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }</Text>
+          <Heading label="Drop Off"/>
+            <Text style={styles.transparentButtonText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
         </View>
         <TouchableHighlight onPress={ ()=> this.handleSubmit() } style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Confirm Order</Text>

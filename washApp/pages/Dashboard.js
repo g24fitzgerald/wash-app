@@ -33,11 +33,10 @@ export default class washApp extends Component {
                 source={require('../images/timer.png')}
                 style={styles.backgroundTimer} />
                 <Text style={styles.dashText}>Order Status</Text>
-
-                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
                 <Image
                 source={require('../images/calendar.png')}
                 style={styles.backgroundCalendar} />
+                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
                   <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
                 </TouchableHighlight>
                 <Image
@@ -122,4 +121,4 @@ export default class washApp extends Component {
       }
   });
 
-AppRegistry.registerComponent('washApp', () => washApp);
+AppRegistry.registerComponent('washApp', () => washApp); 

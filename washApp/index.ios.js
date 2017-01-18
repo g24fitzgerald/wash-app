@@ -38,7 +38,7 @@ export default class washApp extends Component {
         initialRoute={{component: Home }}
 
         configureScene={() => {
-          return Navigator.SceneConfigs.FloatFromBottom;
+          return Navigator.SceneConfigs.FloatFromRight;
         }}
         renderScene={(route, navigator) => {
           if(route.component){
