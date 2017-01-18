@@ -1,5 +1,7 @@
+'use strict'
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   StyleSheet,
   Text,
   TextInput,
@@ -10,6 +12,7 @@ import styles from '../styles/common-styles';
 import TextBox from  '../components/Textbox';
 import Dashboard from './Dashboard';
 export default class Confirmation extends Component {
+
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
     const userData = this.props.firebase.auth().currentUser;
     this.setState({
@@ -36,10 +39,10 @@ export default class Confirmation extends Component {
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
-            specialInstructions: this.state.instructions//state was set onChange of text input
+            specialInstructions: this.state.specialInstructions//state was set onChange of text input
 
           });
-      console.log(this.props);
+    alert('Thanks! Order Confirmed')
     this.props.navigator.push({ //dictates which page the navigator will display next
       component: Dashboard
     })
@@ -51,8 +54,8 @@ export default class Confirmation extends Component {
         <Heading label="Confirmation" />
         <TextInput
           style={styles.textInputBox}
-          onChangeText={(text) => this.setState({instructions: text})}
-          value={this.state.instructions}
+          onChangeText={(text) => this.setState({specialInstructions: text})}
+          value={this.state.specialInstructions}
           multiline={true}
           placeholder={"input special instructions"} />
         <View style={stylesConfirm.pickupWindow}>
@@ -91,3 +94,6 @@ const stylesConfirm = StyleSheet.create({
     margin: 20
   }
 });
+
+AppRegistry.registerComponent('Confirmation', () => Confirmation);
+
