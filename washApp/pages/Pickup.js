@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
   AppRegistry,
   DatePickerIOS,
@@ -10,27 +9,20 @@ import {
   View,
   Image
 } from 'react-native';
-
 import Dropoff from './Dropoff';
 import styles from '../styles/common-styles';
-
 export default class DatePickup extends Component {
-
   static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
   };
-
   state = {
     date: this.props.date,
     timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
-
   };
-
   onDateChange = (date) => {
     this.setState({date: date});
   };
-
   onTimezoneChange = (event) => {
     var offset = parseInt(event.nativeEvent.text, 10);
     if (isNaN(offset)) {
@@ -39,26 +31,27 @@ export default class DatePickup extends Component {
     this.setState({timeZoneOffsetInHours: offset});
   };
   componentWillMount() {
-    const userData = this.props.firebase.auth().currentUser;
+    const userData = this.props.firebase.auth().currentUser;  //pulls authorization token
     this.setState({
       loading: false
     })
     this.setState({
-      uid: userData.uid
+      uid: userData.uid  //authorization token set
     });
-    console.log('this is this.props: ', this.props);
   }
-  handleSubmit(e){
+  handleSubmit(e){ //here we feed in this.state.date
     this.setState({
       loading: true
     })
-
     this.props.navigator.push({
-      component: Dropoff,
-      passProps: { pickup: e }
+      component: Dropoff,  //declare which component we push properties to
+      passProps: { pickup: e,  //key values of properties passed pickup:  this.state.date
+                   pickupDate: e.toLocaleDateString(),  //pickupDate: this.state.date.toLocaleDateString(),
+                   pickupTime: e.toLocaleTimeString() //pickupTime: this.state.date.toLocaleTimeString()
+                  }
     })
+    console.log(e)  //TEST
   }
-
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
@@ -67,9 +60,7 @@ export default class DatePickup extends Component {
           <Image
           source={require('../images/wf.png')}
           style={stylesPicker.backgroundLogo} />
-
       <View style={stylesPicker.pickerContainer}>
-
         <Heading label="Select your pickup date" />
         <DatePickerIOS
           date={this.state.date}
@@ -77,7 +68,6 @@ export default class DatePickup extends Component {
           timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
           onDateChange={this.onDateChange}
         />
-
         <WithLabel label="Pickup Time:">
           <Text>{
             this.state.date.toLocaleDateString() +
@@ -89,10 +79,10 @@ export default class DatePickup extends Component {
           <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
         </TouchableHighlight>
       </View>
-      );
-    }
+    </View>
+    );
   }
-
+}
 class WithLabel extends Component {
   render() {
     return (
@@ -107,7 +97,6 @@ class WithLabel extends Component {
     );
   }
 }
-
 class Heading extends Component {
   render() {
     return (
@@ -119,7 +108,6 @@ class Heading extends Component {
     );
   }
 }
-
 exports.displayName = (undefined: ?string);
 exports.title = '<DatePickerIOS>';
 exports.description = 'Select dates and times using the native UIDatePicker.';
@@ -130,7 +118,6 @@ exports.examples = [
     return <DatePickup />;
   },
 }];
-
 var stylesPicker = StyleSheet.create({
   backgroundLogo: {
     justifyContent: 'center',
@@ -186,5 +173,4 @@ var stylesPicker = StyleSheet.create({
     textAlign: 'center'
   },
 });
-
 AppRegistry.registerComponent('DatePickup', () => Pickup);
