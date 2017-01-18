@@ -20,7 +20,8 @@ export default class Confirmation extends Component {
       pickupTime: '',
       dropoff: '',
       dropoffDate: '',
-      dropoffTime: ''
+      dropoffTime: '',
+      specialIntructions: ''
     })
     console.log(this.props)
   }
@@ -34,7 +35,8 @@ export default class Confirmation extends Component {
             pickupTime: this.props.children.pickupTime,
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
-            dropoffTime: this.props.children.dropoffTime
+            dropoffTime: this.props.children.dropoffTime,
+            specialIntructions: ''
           });
       console.log(this.props);
     this.props.navigator.push({

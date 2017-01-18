@@ -9,7 +9,7 @@ import {
   View,
   Image
 } from 'react-native';
-import Dropoff from './Dropoff';
+import Dropoff from './Dropoff'; //we set this so that we can push props to dropoff component
 import styles from '../styles/common-styles';
 export default class DatePickup extends Component {
   static defaultProps = {
@@ -30,7 +30,7 @@ export default class DatePickup extends Component {
     }
     this.setState({timeZoneOffsetInHours: offset});
   };
-  componentWillMount() {
+  componentWillMount() { //runs when page loads
     const userData = this.props.firebase.auth().currentUser;  //pulls authorization token
     this.setState({
       loading: false
@@ -39,11 +39,11 @@ export default class DatePickup extends Component {
       uid: userData.uid  //authorization token set
     });
   }
-  handleSubmit(e){ //here we feed in this.state.date
+  handleSubmit(e){ //on submit we feed in this.state.date
     this.setState({
       loading: true
     })
-    this.props.navigator.push({
+    this.props.navigator.push({  //this function allows us to push properties set in pickup to another component dropoff
       component: Dropoff,  //declare which component we push properties to
       passProps: { pickup: e,  //key values of properties passed pickup:  this.state.date
                    pickupDate: e.toLocaleDateString(),  //pickupDate: this.state.date.toLocaleDateString(),
