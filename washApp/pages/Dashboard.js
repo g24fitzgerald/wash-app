@@ -121,4 +121,4 @@ export default class washApp extends Component {
       }
   });
 
-AppRegistry.registerComponent('washApp', () => washApp);
+AppRegistry.registerComponent('washApp', () => washApp); 
