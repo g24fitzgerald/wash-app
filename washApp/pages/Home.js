@@ -16,6 +16,7 @@ import {
 import Login from './Login';
 import styles from '../styles/common-styles.js';
 import Signup from './Signup';
+import Process from './Process';
 
 export default class Home extends Component {
   login(){
@@ -28,7 +29,11 @@ export default class Home extends Component {
       component: Signup
     });
   }
-
+  ourProcess(){
+    this.props.navigator.push({
+      component: Process
+    });
+  }
   render() {
     return (
       <View style={pageStyles.view}>
@@ -48,8 +53,9 @@ export default class Home extends Component {
         </TouchableHighlight>
         </View>
         <View style={pageStyles.loginFooter}>
-          <Text style={pageStyles.footerText}>How It Works</Text>
-
+          <TouchableHighlight onPress={this.ourProcess.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.footerText}>How This Works</Text>
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -132,6 +138,9 @@ const pageStyles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
     color: 'white',
+    textAlign: 'center',
+    marginTop: 30,
+    fontStyle: 'italic'
   },
   primaryButtonText: {
     backgroundColor: '#1AAEED',
