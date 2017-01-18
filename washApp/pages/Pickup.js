@@ -60,7 +60,7 @@ export default class DatePickup extends Component {
       loading: true
     })
     this.props.navigator.pop()
-    }  
+    }
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
@@ -87,8 +87,8 @@ export default class DatePickup extends Component {
         <TouchableHighlight onPress={ ()=> this.handleSubmit(this.state.date) } style={stylesPicker.primaryButton}>
           <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
         </TouchableHighlight>
-        <TouchableHighlight onPress={ this.handleBack.bind(this) } style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>Back to Dashboard</Text>
+        <TouchableHighlight onPress={ this.handleBack.bind(this) } style={stylesPicker.transparentButton}>
+          <Text style={stylesPicker.transparentButtonText}>Back to Dashboard</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -135,9 +135,8 @@ var stylesPicker = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    maxWidth: 350,
-    marginLeft: 20,
-    resizeMode: Image.resizeMode.cover,
+    maxWidth: 315,
+    marginLeft: 60,
   },
   view: {
     backgroundColor: 'white',
@@ -181,6 +180,13 @@ var stylesPicker = StyleSheet.create({
     margin: 10,
     padding: 15,
     color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
     fontWeight: 'bold',
     textAlign: 'center'
   },
