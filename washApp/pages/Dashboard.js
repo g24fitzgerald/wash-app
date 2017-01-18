@@ -15,7 +15,7 @@ import {
 import Pickup from './Pickup';
 import OrderStatus from './OrderStatus';
 
-export default class washApp extends Component {
+export default class Dashboard extends Component {
 
   goToPickup(){
     this.props.navigator.push({
@@ -129,4 +129,4 @@ export default class washApp extends Component {
       }
   });
 
-AppRegistry.registerComponent('washApp', () => washApp);
+AppRegistry.registerComponent('Dashboard', () => Dashboard);

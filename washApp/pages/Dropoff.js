@@ -11,7 +11,8 @@ import {
   Image
 } from 'react-native';
 
-import Confirmation from './Confirmation'
+import Pickup from './Pickup';
+import Confirmation from './Confirmation';
 
 import styles from '../styles/common-styles';
 
@@ -70,6 +71,10 @@ export default class DateDropoff extends Component {
     })
     console.log(this.props);
   }
+  handleBack(){
+  this.props.navigator.pop();
+  }
+
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
@@ -98,6 +103,9 @@ export default class DateDropoff extends Component {
         </WithLabel>
         <TouchableHighlight onPress={ ()=> this.handleSubmit(this.state.date) } style={stylesPicker.primaryButton}>
           <Text style={stylesPicker.primaryButtonText}>Submit Drop Off Time</Text>
+        </TouchableHighlight>
+          <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
     </View>

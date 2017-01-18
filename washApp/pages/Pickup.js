@@ -11,6 +11,7 @@ import {
   Image
 } from 'react-native';
 import Dropoff from './Dropoff'; //we set this so that we can push props to dropoff component
+import Dashboard from './Dashboard';
 import styles from '../styles/common-styles';
 export default class DatePickup extends Component {
   static defaultProps = {
@@ -53,6 +54,13 @@ export default class DatePickup extends Component {
     })
     console.log(e)  //TEST
   }
+
+  handleBack(){ //on submit we feed in this.state.date
+    this.setState({
+      loading: true
+    })
+    this.props.navigator.pop()
+    }  
   render() {
     // Ideally, the timezone input would be a picker rather than a
     // text input, but we don't have any pickers yet :(
@@ -78,6 +86,9 @@ export default class DatePickup extends Component {
         </WithLabel>
         <TouchableHighlight onPress={ ()=> this.handleSubmit(this.state.date) } style={stylesPicker.primaryButton}>
           <Text style={stylesPicker.primaryButtonText}>Submit Pickup Time</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={ this.handleBack.bind(this) } style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Back to Dashboard</Text>
         </TouchableHighlight>
       </View>
     </View>
