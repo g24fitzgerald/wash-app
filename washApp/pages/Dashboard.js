@@ -14,6 +14,7 @@ import {
 
 import Pickup from './Pickup';
 import OrderStatus from './OrderStatus';
+import Account from './Account';
 
 export default class Dashboard extends Component {
 
@@ -28,31 +29,45 @@ export default class Dashboard extends Component {
       component: OrderStatus
     })
   }
+
+  goToAccount(){
+    this.props.navigator.push({
+      component: Account
+    })
+  }
+
+
   render() {
           return (
             <View style={styles.view}>
-                <Image
-                source={require('../images/logo_name.png')}
-                style={styles.backgroundLogo} />
+                <Image source={require('../images/logo_name.png')} style={styles.backgroundLogo} />
+
               <View style={styles.container}>
-                <Image
-                source={require('../images/timer.png')}
-                style={styles.backgroundTimer} />
-                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.dashText}>Order Status</Text>
+                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.backgroundTimer}>
+                  <Image source={require('../images/timer.png')} style={styles.backgroundTimer} />
                 </TouchableHighlight>
-                <Image
-                source={require('../images/calendar.png')}
-                style={styles.backgroundCalendar} />
+                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.transparentButtonText}>Order Status</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.backgroundCalendar}>
+                  <Image source={require('../images/calendar.png')} style={styles.backgroundCalendar} />
+                </TouchableHighlight>
                 <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
                   <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
                 </TouchableHighlight>
-                <Image
-                source={require('../images/account_icon.png')}
-                style={styles.backgroundIcon} />
+
+                <TouchableHighlight onPress={this.goToAccount.bind(this)} style={styles.backgroundIcon}>
+                  <Image source={require('../images/account_icon.png')} style={styles.backgroundIcon} />
+                </TouchableHighlight>
+                <TouchableHighlight onPress={this.goToAccount.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.transparentButtonText}>Account</Text>
+                </TouchableHighlight>
+
+                {/* <Image source={require('../images/account_icon.png')} style={styles.backgroundIcon} />
                 <Text style={styles.dashText}>Account</Text>
                     <View style={styles.column}>
-                    </View>
+                    </View> */}
               </View>
             </View>
           );
@@ -66,28 +81,25 @@ export default class Dashboard extends Component {
       flex: 1,
       maxWidth: 350,
       marginLeft: 30,
-      resizeMode: Image.resizeMode.contain,
     },
     backgroundTimer: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 70,
-      resizeMode: Image.resizeMode.contain,
+      maxWidth: 115,
+      marginTop: 5,
     },
     backgroundCalendar: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 70,
-      resizeMode: Image.resizeMode.contain,
+      maxWidth: 130,
     },
     backgroundIcon: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      maxWidth: 100,
-      resizeMode: Image.resizeMode.contain,
+      maxWidth: 180,
     },
       container: {
         flex: 5,
@@ -100,7 +112,6 @@ export default class Dashboard extends Component {
         flex: 1,
         paddingBottom: 80
       },
-
       title: {
         fontSize: 30,
         fontWeight: 'bold',
@@ -113,19 +124,13 @@ export default class Dashboard extends Component {
         alignItems: 'center',
         justifyContent: 'center'
       },
-      dashText: {
-        color: '#1AAEED',
-        fontSize: 16,
-        width: 150,
-        textAlign: 'center',
-        fontWeight: 'bold'
-      },
       transparentButtonText: {
         color: '#1AAEED',
         fontSize: 16,
         width: 150,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 20,
       }
   });
 
