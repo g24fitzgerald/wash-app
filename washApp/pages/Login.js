@@ -1,6 +1,7 @@
-'use strict';
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import {
   AppRegistry,
+  StyleSheet,
   Text,
   TextInput,
   View,
@@ -42,21 +43,21 @@ export default class Login extends Component {
           value={this.state.password}
           secureTextEntry={true}
           placeholder={"Password"} />
-        <TouchableHighlight onPress={this.login.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Login</Text>
+        <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.primaryButtonText}>Login</Text>
         </TouchableHighlight>
-        <TouchableHighlight onPress={this.goToSignup.bind(this)} style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>New here?</Text>
+        <TouchableHighlight onPress={this.goToSignup.bind(this)} style={pageStyles.transparentButton}>
+          <Text style={pageStyles.transparentButtonText}>New here?</Text>
         </TouchableHighlight>
       </View>;
 
     // A simple UI with a toolbar, and content below it.
         return (
                 <View style={styles.container}>
-        <View style={styles.body}>
-          {content}
-        </View>
-      </View>
+                  <View style={styles.body}>
+                    {content}
+                  </View>
+                </View>
                 );
   }
 
@@ -86,7 +87,6 @@ export default class Login extends Component {
 
 
   }
-
   // Go to the signup page
   goToSignup(){
     this.props.navigator.push({
@@ -94,5 +94,27 @@ export default class Login extends Component {
     });
   }
 }
+
+
+const pageStyles = StyleSheet.create({
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    marginTop: 20,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+
+});
 
 AppRegistry.registerComponent('Login', () => Login);

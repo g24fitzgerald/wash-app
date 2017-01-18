@@ -23,7 +23,7 @@ import { REACT_APP_API_KEY,
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Home from './pages/Home';
+import Home from './pages/Login';
 
 import { firebase } from './utils/firebase'
 
@@ -32,16 +32,11 @@ import styles from './styles/common-styles';
 
 export default class washApp extends Component {
 
-
-  dataGetter(){
-    return this.state.wizardData
-  }
-
-
   render(){
       return (
         <Navigator
         initialRoute={{component: Home }}
+
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
