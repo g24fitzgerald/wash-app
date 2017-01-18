@@ -57,7 +57,7 @@ export default class Confirmation extends Component {
           <Heading label="Pickup Time: " />
           <Heading label="Drop Off Time: " />
         </View>
-        <TouchableHighlight onPress={ ()=> this.handleSubmit().bind(this) } style={styles.primaryButton}>
+        <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Confirm Order</Text>
         </TouchableHighlight>
       </View>
