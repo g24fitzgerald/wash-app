@@ -16,6 +16,36 @@ import Pickup from './Pickup';
 import OrderStatus from './OrderStatus';
 
 export default class Account extends Component {
+    componentWillMount(){ //set up new component when page is going to load with the following properties set.
+    const userData = this.props.firebase.auth().currentUser;
+    
+  }
+  componentDidMount() {
+    this.props.firebase
+    .database()
+    .ref('/users/' + this.state.uid +'/orders/')
+    .once('value')
+    .then(function(snapshot) {
+     var username = snapshot.val().email;
+     console.log
+     console.log('QUE',snapshot.val().email)
+     console.log('QUE',snapshot.val())
+    this.setState({
+      loading: false,
+      uid: userData.uid,
+      firstName: 
+      lastName: snapshoot.val().lastName,
+      email: '',
+      address1: snapshot.val().location.address1,
+      address2: '',
+      dropoffTime: '',
+      specialInstructions: ''
+    })
+
+     })
+
+
+    }
 
   goToPickup(){
     this.props.navigator.push({
@@ -31,29 +61,11 @@ export default class Account extends Component {
   render() {
           return (
             <View style={styles.view}>
+              
                 <Image
                 source={require('../images/logo_name.png')}
                 style={styles.backgroundLogo} />
-              <View style={styles.container}>
-                <Image
-                source={require('../images/timer.png')}
-                style={styles.backgroundTimer} />
-                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.dashText}>Order Status</Text>
-                </TouchableHighlight>
-                <Image
-                source={require('../images/calendar.png')}
-                style={styles.backgroundCalendar} />
-                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
-                </TouchableHighlight>
-                <Image
-                source={require('../images/account_icon.png')}
-                style={styles.backgroundIcon} />
-                <Text style={styles.dashText}>Account</Text>
-                    <View style={styles.column}>
-                    </View>
-              </View>
+
             </View>
           );
         }
