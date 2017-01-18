@@ -24,14 +24,10 @@ module.exports = StyleSheet.create({
   textInput: {
     height: 40,
     width: 200,
-    borderColor: 'red',
-    borderWidth: 1
-  },
-  textInputBox: {
-    height: 100,
-    width: 300,
-    borderColor: 'gray',
+    borderColor: '#1AAEED',
     borderWidth: 1,
+    margin: 5,
+
   },
   transparentButton: {
     marginTop: 10,
