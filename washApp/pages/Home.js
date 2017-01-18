@@ -15,6 +15,7 @@ import {
 
 import Login from './Login';
 import styles from '../styles/common-styles.js';
+import Signup from './Signup';
 
 export default class Home extends Component {
   login(){
@@ -22,24 +23,28 @@ export default class Home extends Component {
       component: Login
     });
   }
+  goToSignup(){
+    this.props.navigator.push({
+      component: Signup
+    });
+  }
 
   render() {
     return (
       <View style={pageStyles.view}>
-          <Image
-          source={require('../images/logo_name.png')}
-          style={pageStyles.backgroundLogo} />
+          <Image source={require('../images/logo_name.png')} style={pageStyles.backgroundLogo} />
         <View style={pageStyles.loginIcons}>
-          <Image
-          source={require('../images/launder_icons.png')}
-          style={pageStyles.backgroundIcon} />
+          <Image source={require('../images/launder_icons.png')} style={pageStyles.backgroundIcon} />
         </View>
         <View style={pageStyles.loginHero}>
-         <Image
-          source={require('../images/skyline.png')}
-          style={pageStyles.backgroundImg} />
+         <Image source={require('../images/skyline.png')} style={pageStyles.backgroundImg} />
+        </View>
+         <View style={pageStyles.loginSignup}>
         <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.primaryButton}>
           <Text style={pageStyles.primaryButtonText}>LOGIN</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this.goToSignup.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.signUp}>SIGN UP</Text>
         </TouchableHighlight>
         </View>
         <View style={pageStyles.loginFooter}>
@@ -57,7 +62,7 @@ const pageStyles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     maxWidth: 800,
-    resizeMode: Image.resizeMode.cover,
+    // resizeMode: Image.resizeMode.cover,
   },
   backgroundLogo: {
     justifyContent: 'center',
@@ -65,16 +70,15 @@ const pageStyles = StyleSheet.create({
     flex: 1,
     maxWidth: 350,
     marginLeft: 30,
-    resizeMode: Image.resizeMode.stretch,
   },
   backgroundIcon: {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    maxWidth: 330,
-    marginTop: 20,
+    maxWidth: 300,
+    marginTop: 14,
     marginLeft: 2,
-    resizeMode: Image.resizeMode.cover,
+    // resizeMode: Image.resizeMode.cover,
   },
   container: {
     flex: 1,
@@ -105,8 +109,15 @@ const pageStyles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
+  loginSignup: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
   loginFooter: {
-    backgroundColor: 'white',
+    backgroundColor: '#1AAEED',
     flex: 1,
     alignItems: 'center',
   },
@@ -120,14 +131,31 @@ const pageStyles = StyleSheet.create({
     fontSize: 25,
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
-    color: '#1AAEED'
+    color: 'white',
   },
   primaryButtonText: {
     backgroundColor: '#1AAEED',
     margin: 15,
     padding: 15,
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    borderWidth: 5,
+    borderColor: 'white',
+    textAlign: 'center',
+    marginTop: 10,
+    paddingBottom: 4,
+  },
+  signUp: {
+    backgroundColor: '#1AAEED',
+    margin: 15,
+    padding: 15,
+    color: 'black',
+    fontWeight: 'bold',
+    borderWidth: 5,
+    borderColor: 'white',
+    textAlign: 'center',
+    marginTop: 10,
+    paddingBottom: 4,
   }
 });
 
