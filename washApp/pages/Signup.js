@@ -1,4 +1,4 @@
-'use strict';
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 
 import {
@@ -49,7 +49,7 @@ export default class Signup extends Component {
 		this.props.navigator.push({
 			component: ProfileName
 		})
-		
+
 	}
 
 	login(){
@@ -97,4 +97,3 @@ render() {
 
 
 AppRegistry.registerComponent('Signup', () => Signup);
-

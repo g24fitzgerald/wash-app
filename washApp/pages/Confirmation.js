@@ -1,3 +1,4 @@
+'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -36,7 +37,7 @@ export default class Confirmation extends Component {
             dropoff: this.props.children.dropoff,
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
-            specialInstructions: this.state.instructions//state was set onChange of text input
+            specialInstructions: this.state.instructions //state was set onChange of text input
 
           });
       console.log(this.props);
@@ -56,7 +57,7 @@ export default class Confirmation extends Component {
           multiline={true}
           placeholder={"input special instructions"} />
         <View style={stylesConfirm.pickupWindow}>
-          <Heading label="Pickup"/>  
+          <Heading label="Pickup"/>
             <Text style={styles.transparentButtonText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }</Text>
           <Heading label="Drop Off"/>
             <Text style={styles.transparentButtonText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
