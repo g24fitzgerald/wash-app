@@ -67,18 +67,18 @@ export default class Confirmation extends Component {
           onChangeText={(text) => this.setState({specialInstructions: text})}
           value={this.state.specialInstructions}
           multiline={true}
-          placeholder={"input special instructions"} />
+          placeholder={"Please input any specific instructions"} />
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup"/>
-            <Text style={styles.transparentButtonText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }</Text>
+            <Text style={stylesConfirm.confirmationText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }{"\n"}{"\n"}</Text>
           <Heading label="Drop Off"/>
-            <Text style={styles.transparentButtonText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
+            <Text style={stylesConfirm.confirmationText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
         </View>
-        <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Confirm Order</Text>
+        <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={stylesConfirm.primaryButton}>
+          <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
         </TouchableHighlight>
-          <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>Back</Text>
+          <TouchableHighlight onPress={this.handleBack.bind(this)} style={stylesConfirm.transparentButton}>
+          <Text style={stylesConfirm.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
     );
@@ -105,8 +105,26 @@ const stylesConfirm = StyleSheet.create({
   },
   pickupWindow: {
     margin: 20
-  }
+  },
+  confirmationText: {
+    color: '#1AAEED',
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    marginTop: 20,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
 });
 
 AppRegistry.registerComponent('Confirmation', () => Confirmation);
-
