@@ -65,7 +65,6 @@ const pageStyles = StyleSheet.create({
     flex: 1,
     maxWidth: 350,
     marginLeft: 30,
-    resizeMode: Image.resizeMode.stretch,
   },
   backgroundIcon: {
     justifyContent: 'center',
