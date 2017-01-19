@@ -18,12 +18,7 @@ export default class OrderHistory extends Component {
   constructor(props){
     super(props)
     this.state = {
-      orderData: []
-      // loading: false,
-      // pickupDate: '',
-      // pickupTime: '',
-      // dropoffDate: '',
-      // dropoffTime: '',
+      orderData: []  //instantiate empty array that will hold the firebase payload after it's been covnerted to an array
     }
   }
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
@@ -66,12 +61,3 @@ export default class OrderHistory extends Component {
     )
   }
 }
-
-const stylesOrder = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
