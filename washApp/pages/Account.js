@@ -9,124 +9,128 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator,
-  Image
+  Image,
+  ListView
 } from 'react-native';
 
+import styles from '../styles/common-styles';
 import Pickup from './Pickup';
 import OrderStatus from './OrderStatus';
 
 export default class Account extends Component {
+    constructor(props) {
+      super(props);
+      
+       this.state = {
+        loading: false,
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zip: ''
+       }
+    }
 
-  goToPickup(){
+    componentWillMount(){ //set up new component when page is going to load with the following properties set.
+    const userData = this.props.firebase.auth().currentUser;
+
+    this.props.firebase
+    .database()
+    .ref('/users/' + userData.uid)
+    .once('value')
+    .then((snapshot)=> {
+     let snap = snapshot.val();
+       this.setState({
+        firstName: snap.firstName,
+        lastName: snap.lastName,
+        email: snap.email,
+        phoneNumber: snap.phoneNumber,
+        address1: snap.location.address1,
+        address2: snap.location.address2,
+        city: snap.location.city,
+        state: snap.location.state,
+        zip: snap.location.zip
+       })
+     
+     })
+    }
+
+  handleSubmit(){
     this.props.navigator.push({
       component: Pickup
     })
   }
 
-  goToOrderStatus(){
-    this.props.navigator.push({
-      component: OrderStatus
-    })
+  handleBack(){
+    this.props.navigator.pop()
   }
   render() {
           return (
-            <View style={styles.view}>
-                <Image
-                source={require('../images/logo_name.png')}
-                style={styles.backgroundLogo} />
-              <View style={styles.container}>
-                <Image
-                source={require('../images/timer.png')}
-                style={styles.backgroundTimer} />
-                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.dashText}>Order Status</Text>
-                </TouchableHighlight>
-                <Image
-                source={require('../images/calendar.png')}
-                style={styles.backgroundCalendar} />
-                <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.transparentButtonText}>Schedule Pickup</Text>
-                </TouchableHighlight>
-                <Image
-                source={require('../images/account_icon.png')}
-                style={styles.backgroundIcon} />
-                <Text style={styles.dashText}>Account</Text>
-                    <View style={styles.column}>
-                    </View>
-              </View>
+            <View style={styles.container}>
+
+            <View style={stylesConfirm.pickupWindow}>
+
+                <Text style={stylesConfirm.confirmationText}>
+                { this.state.firstName },
+                { this.state.lastName },
+                { this.state.email },
+                { this.state.phoneNumber },
+                { this.state.address1 },
+                { this.state.address2 },
+                { this.state.city },
+                { this.state.state },
+                { this.state.zip },
+
+                </Text>
+
+            </View>
+            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
+              <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
+            </TouchableHighlight>
+              <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
+              <Text style={stylesConfirm.transparentButtonText}>Back</Text>
+            </TouchableHighlight>              
+
+
+
             </View>
           );
         }
       }
 
-  const styles = StyleSheet.create({
-    backgroundLogo: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-      maxWidth: 350,
-      marginLeft: 30,
-      resizeMode: Image.resizeMode.contain,
-    },
-    backgroundTimer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-      maxWidth: 70,
-      resizeMode: Image.resizeMode.contain,
-    },
-    backgroundCalendar: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-      maxWidth: 70,
-      resizeMode: Image.resizeMode.contain,
-    },
-    backgroundIcon: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-      maxWidth: 100,
-      resizeMode: Image.resizeMode.contain,
-    },
-      container: {
-        flex: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white'
+  const stylesConfirm = StyleSheet.create({
+    container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
       },
-      view: {
-        backgroundColor: '#1AAEED',
-        flex: 1,
-        paddingBottom: 80
-      },
-
-      title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#afeeee',
-        textAlign: 'center',
-        padding: 15
-      },
-      column: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center'
-      },
-      dashText: {
-        color: '#1AAEED',
-        fontSize: 16,
-        width: 150,
-        textAlign: 'center',
-        fontWeight: 'bold'
-      },
-      transparentButtonText: {
-        color: '#1AAEED',
-        fontSize: 16,
-        width: 150,
-        textAlign: 'center',
-        fontWeight: 'bold'
-      }
+  pickupWindow: {
+    margin: 20
+  },
+  confirmationText: {
+    color: '#1AAEED',
+  },
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    marginTop: 20,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
   });
 
 AppRegistry.registerComponent('washApp', () => washApp);

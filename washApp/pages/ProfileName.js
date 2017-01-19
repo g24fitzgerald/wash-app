@@ -43,7 +43,7 @@ export default class ProfileName extends Component {
       .set({
 
         firstName: this.state.firstName,
-        lastnName: this.state.lastName,
+        lastName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
         email: this.state.user.email
       });
