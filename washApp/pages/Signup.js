@@ -124,5 +124,3 @@ const pageStyles = StyleSheet.create({
   },
 
 });
-
-AppRegistry.registerComponent('Signup', () => Signup);

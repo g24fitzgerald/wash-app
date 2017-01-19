@@ -125,4 +125,3 @@ const stylesConfirm = StyleSheet.create({
     textAlign: 'center'
   },
 });
-AppRegistry.registerComponent('Confirmation', () => Confirmation);

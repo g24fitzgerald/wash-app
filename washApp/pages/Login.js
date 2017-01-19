@@ -121,5 +121,3 @@ const pageStyles = StyleSheet.create({
     marginLeft: 50
   },
 });
-
-AppRegistry.registerComponent('Login', () => Login);
