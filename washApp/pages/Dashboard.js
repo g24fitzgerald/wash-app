@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 import Pickup from './Pickup';
-import OrderStatus from './OrderStatus';
+import OrderHistory from './OrderHistory';
 import Account from './Profile';
 
 export default class Dashboard extends Component {
@@ -33,8 +33,8 @@ export default class Dashboard extends Component {
     })
     console.log(this.props)
 }
-   
-    
+
+
 
   goToPickup(){
     this.props.navigator.push({
@@ -42,9 +42,9 @@ export default class Dashboard extends Component {
     })
   }
 
-  goToOrderStatus(){
+  goToOrderHistory(){
     this.props.navigator.push({
-      component: OrderStatus
+      component: OrderHistory
     })
   }
 
@@ -61,11 +61,11 @@ export default class Dashboard extends Component {
                 <Image source={require('../images/logo_name.png')} style={styles.backgroundLogo} />
 
               <View style={styles.container}>
-                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.backgroundTimer}>
+                <TouchableHighlight onPress={this.goToOrderHistory.bind(this)} style={styles.backgroundTimer}>
                   <Image source={require('../images/timer.png')} style={styles.backgroundTimer} />
                 </TouchableHighlight>
-                <TouchableHighlight onPress={this.goToOrderStatus.bind(this)} style={styles.transparentButton}>
-                  <Text style={styles.transparentButtonText}>Order Status</Text>
+                <TouchableHighlight onPress={this.goToOrderHistory.bind(this)} style={styles.transparentButton}>
+                  <Text style={styles.transparentButtonText}>Order History</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight onPress={this.goToPickup.bind(this)} style={styles.backgroundCalendar}>

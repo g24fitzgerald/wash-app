@@ -15,13 +15,11 @@ import {
 } from 'react-native';
 
 import styles from '../styles/common-styles';
-import Pickup from './Pickup';
-import OrderStatus from './OrderStatus';
 
 export default class Profile extends Component {
     constructor(props) {
       super(props);
-      
+
        this.state = {
         loading: false,
         firstName: '',
@@ -64,19 +62,12 @@ export default class Profile extends Component {
         state: snap.location.state,
         zip: snap.location.zip
        })
-     
+
      })
     }
 
   handleSubmit(){
-this.setState({style: {                
-                height: 30,
-                width: 150,
-                borderColor: 'red',
-                borderWidth: 1,
-                margin: 2,
-                fontSize: 15}})
-  
+
   }
 
   handleBack(){
@@ -94,15 +85,12 @@ this.setState({style: {
                     onChangeText={(text) => this.setState({firstName: text})}
                     value={ this.state.firstName }
                     placeholder={this.state.firstName}/>
-                </View>
-                <View>
-                  <Text style={pageStyles.fontSM}> Last Name</Text>  
+
+                  <Text style={pageStyles.fontSM}> Last Name</Text>
                   <TextInput
                     style={pageStyles.textInput}
                     value={ this.state.lastName }
                     placeholder={ this.state.lastName } />
-                </View>
-
 
                   <Text style={pageStyles.fontSM}> Email</Text>
                   <TextInput
@@ -110,38 +98,51 @@ this.setState({style: {
                     value={ this.state.email }
                     placeholder={this.state.email}/>
 
-                  <Text style={pageStyles.fontSM}> Phone Number </Text>  
+                  <Text style={pageStyles.fontSM}> Phone Number </Text>
                   <TextInput
                     style={pageStyles.textInput}
                     value={ this.state.phoneNumber }
                     placeholder={ this.state.phoneNumber } />
 
+                  <Text style={pageStyles.fontSM}> Address 1 </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.address1 }
+                    placeholder={ this.state.address1 } />
 
+                  <Text style={pageStyles.fontSM}> Address 2 </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.address2 }
+                    placeholder={ this.state.address2 } />
 
-                <Text style={pageStyles.confirmationText}>
-                { this.state.firstName },
-                { this.state.lastName },
-                { this.state.email },
-                { this.state.phoneNumber },
-                { this.state.address1 },
-                { this.state.address2 },
-                { this.state.city },
-                { this.state.state },
-                { this.state.zip },
+                  <Text style={pageStyles.fontSM}> City </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.city }
+                    placeholder={ this.state.city } />
 
-                </Text>
+                  <Text style={pageStyles.fontSM}> State </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.state }
+                    placeholder={ this.state.state } />
+
+                  <Text style={pageStyles.fontSM}> Zip </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.zip }
+                    placeholder={ this.state.zip } />
+
+                </View>
                 </View>
 
-
-
-
-            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
-              <Text style={styles.primaryButtonText}>Edit</Text>
+            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={pageStyles.primaryButton}>
+              <Text style={pageStyles.primaryButtonText}>Edit</Text>
             </TouchableHighlight>
-              <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-              <Text style={styles.transparentButtonText}>Back</Text>
-            </TouchableHighlight>              
-
+              <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
+              <Text style={pageStyles.transparentButtonText}>Back</Text>
+            </TouchableHighlight>
 
 
             </View>
@@ -158,9 +159,9 @@ this.setState({style: {
     alignItems: 'center',
 
   },
-    
+
   fontSM: {
-    fontSize: 8
+    fontSize: 12
   },
 
   textInput: {
@@ -169,7 +170,7 @@ this.setState({style: {
     borderColor: '#1AAEED',
     borderWidth: 1,
     margin: 2,
-    fontSize: 15
+    fontSize: 16
   },
 
   container: {
