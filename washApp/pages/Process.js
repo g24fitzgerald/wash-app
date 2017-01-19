@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 2,
+    height: 175,
     maxWidth: 375,
-    marginTop: 20,
+    marginTop: 30,
   },
   view: {
     backgroundColor: 'white',
