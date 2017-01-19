@@ -16,6 +16,7 @@ import styles from '../styles/common-styles';
 import Profile from './Profile';
 import FAQ from './FAQ';
 import Payment from './Payment';
+import Dashboard from './Dashboard';
 import OrderHistory from './OrderHistory';
 
 export default class Account extends Component {
@@ -38,7 +39,9 @@ export default class Account extends Component {
   }
 
   handleBack(){
-    this.props.navigator.pop()
+    this.props.navigator.push({
+      component: Dashboard
+    })
   }
   render() {
           return (
