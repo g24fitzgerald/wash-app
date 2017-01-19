@@ -46,7 +46,9 @@ export default class Account extends Component {
   render() {
           return (
             <View style={styles.container}>
-
+              <Image
+              source={require('../images/app_logo.png')}
+              style={stylesConfirm.applogo} />
             <TouchableHighlight onPress={this.goToProfile.bind(this)} >
               <Text style={stylesConfirm.primaryButtonText}>Profile</Text>
             </TouchableHighlight>
@@ -87,5 +89,8 @@ export default class Account extends Component {
     padding: 15,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  applogo: {
+    marginLeft: 50
   },
   });

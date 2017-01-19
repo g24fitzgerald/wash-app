@@ -14,7 +14,7 @@ import Dashboard from './Dashboard';
 
 export default class washApp extends Component {
   handleBack(){
-    this.props.navigator.push({
+    this.props.navigator.pop({
       component: Dashboard
     })
   }
