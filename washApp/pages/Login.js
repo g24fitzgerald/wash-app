@@ -6,6 +6,7 @@ import {
   TextInput,
   View,
   TouchableHighlight,
+  Image,
   ActivityIndicator
 } from 'react-native';
 import React, {Component} from 'react';
@@ -53,11 +54,14 @@ export default class Login extends Component {
 
     // A simple UI with a toolbar, and content below it.
         return (
-                <View style={styles.container}>
-                  <View style={styles.body}>
-                    {content}
-                  </View>
-                </View>
+          <View style={styles.container}>
+          <Image
+          source={require('../images/app_logo.png')}
+          style={pageStyles.applogo} />
+            <View style={styles.body}>
+              {content}
+            </View>
+          </View>
                 );
   }
 
@@ -112,5 +116,8 @@ const pageStyles = StyleSheet.create({
     padding: 15,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  applogo: {
+    marginLeft: 50
   },
 });
