@@ -8,6 +8,7 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator,
+  ScrollView
 } from 'react-native';
 
 import { firebase, firebaseListToArray } from '../utils/firebase'; //need to use firebaseListToArray
@@ -51,6 +52,7 @@ export default class OrderHistory extends Component {
             )
     });
     return (
+      <ScrollView>
       <View style={styles.container}>
         <Text style={styles.heading}>Order History</Text>
         { orderHistory.reverse() }
@@ -58,6 +60,7 @@ export default class OrderHistory extends Component {
           <Text style={styles.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
+    </ScrollView>
     )
   }
-}
+};
