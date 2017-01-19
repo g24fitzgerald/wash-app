@@ -15,11 +15,10 @@ module.exports = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor: '#F5FCFF',
   },
   toolbar: {
     height: 56,
-    backgroundColor: '#e9eaed',
+    // backgroundColor: '#e9eaed',
   },
   textInput: {
     height: 40,
@@ -39,17 +38,17 @@ module.exports = StyleSheet.create({
     padding: 15
   },
   transparentButtonText: {
-    color: '#0485A9',
+    color: '#1AAEED',
     textAlign: 'center',
     fontSize: 16
   },
   primaryButton: {
     margin: 10,
     padding: 15,
-    backgroundColor: '#529ecc'
+    backgroundColor: '#1AAEED'
   },
   primaryButtonText: {
-    color: '#FFF',
+    // color: '#FFF',
     textAlign: 'center',
     fontSize: 18
   },

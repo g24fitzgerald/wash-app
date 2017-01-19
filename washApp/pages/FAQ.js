@@ -34,7 +34,7 @@ export default class FAQ extends Component {
 </Text>{"\n"}{"\n"}
         </Text>
         <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-        <Text style={styles.transparentButtonText}>Back</Text>
+        <Text style={styles.transparentButtonText}>Back to Dashboard</Text>
       </TouchableHighlight>
       </View>
       </ScrollView>
