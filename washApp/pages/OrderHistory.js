@@ -54,13 +54,24 @@ export default class OrderHistory extends Component {
     return (
       <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.heading}>Order History</Text>
+        <Text style={styles.heading}>ORDER HISTORY</Text>
         { orderHistory.reverse() }
-        <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-          <Text style={styles.transparentButtonText}>Back</Text>
+        <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
+          <Text style={pageStyles.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
     </ScrollView>
     )
   }
 };
+
+const pageStyles = StyleSheet.create({
+
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  });
