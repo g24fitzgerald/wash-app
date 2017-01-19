@@ -41,15 +41,17 @@ export default class Signup extends Component {
 					password: '',
 					loading: false
 				});
+
+        this.props.navigator.push({
+          component: ProfileName
+    })
 			}).catch((error) => {
 				this.setState({
 					loading: false
 				});
 				alert("Account creation failed: " + error.message );
 			});
-		this.props.navigator.push({
-			component: ProfileName
-		})
+
 
 	}
 
