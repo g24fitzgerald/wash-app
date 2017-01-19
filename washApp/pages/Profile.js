@@ -97,7 +97,7 @@ export default class Profile extends Component {
                 <View>
                   <Text style={pageStyles.fontSM}> First Name</Text>
                   <TextInput
-                    style={this.state.style}
+                    style={pageStyles.textInput}
                     onChangeText={(text) => this.setState({firstName: text})}
                     value={ this.state.firstName }
                     placeholder={this.state.firstName}/>
