@@ -16,8 +16,8 @@ export default class washApp extends Component {
 
       <View style={styles.container}>
         <Image
-        source={require('../images/faqBubbles.png')}
-        style={styles.faqBubbles} />
+        source={require('../images/bubbleBanner.png')}
+        style={styles.bubbleBanner} />
         <Text style={styles.text}>
         <Text style={styles.faq1}>1. What services do you provide?</Text>{"\n"}<Text style={styles.faq2}>We offer a full-list of cleaning services, including one-time and repeat, small commercial spaces cleaning, and a bunch of additional services.</Text>{"\n"}{"\n"}
         <Text style={styles.faq1}>2. What's the minimum?</Text>{"\n"}<Text style={styles.faq2}>Yes.  For Wash & Fold orders, the minimum order size is 10 lbs. per bag.</Text>{"\n"}{"\n"}
@@ -27,6 +27,7 @@ export default class washApp extends Component {
         <Text style={styles.faq1}>5. I’ve never booked a cleaning before. What if I’m not happy?</Text>{"\n"}<Text style={styles.faq2}>Simply put: if you’re not happy, we’re not happy. Whatever it takes, we’ll make it right.
 </Text>{"\n"}{"\n"}
         </Text>
+
       </View>
     );
   }
@@ -34,18 +35,20 @@ export default class washApp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 30,
     backgroundColor: '#ffffff',
   },
 
   text: {
     color: '#ffffff',
     fontSize: 14,
-    width: 350,
+    width: 390,
     textAlign: 'left',
-    padding: 25
+    paddingLeft: 30,
+    paddingRight: 30
   },
 
   faq: {
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
   },
 
   faq1: {
-    color: '#1AAEED',
+    color: '#31B8D0',
     fontSize: 18,
     fontWeight: 'bold',
     fontFamily: "Baskerville",
@@ -65,17 +68,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingBottom: 15,
     textAlign: 'left'
-
-
   },
+
   faq2: {
-    color: 'gray',
-    textAlign: 'left'
+    color: '#6f6f6f',
   },
 
-  faqBubbles: {
-    maxWidth: 1000,
-    resizeMode: 'cover'
+  bubbleBanner: {
+    height: 150,
+    resizeMode: 'contain'
   }
 
 
