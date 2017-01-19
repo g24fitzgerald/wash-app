@@ -59,7 +59,7 @@ export default class Confirmation extends Component {
           onChangeText={(text) => this.setState({specialInstructions: text})}
           value={this.state.specialInstructions}
           multiline={true}
-          placeholder={"Please input any specific instructions:"} />
+          placeholder={" Please input any specific instructions:"} />
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup"/>
             <Text style={stylesConfirm.confirmationText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }{"\n"}{"\n"}</Text>
