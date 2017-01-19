@@ -28,12 +28,7 @@ module.exports = StyleSheet.create({
     borderWidth: 1,
     margin: 2
   },
-  textInputBox: {
-    height: 100,
-    width: 300,
-    borderColor: 'gray',
-    borderWidth: 1,
-  },
+  
   transparentButton: {
     marginTop: 10,
     padding: 15
