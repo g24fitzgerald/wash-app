@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 
 import styles from '../styles/common-styles';
-import Dashboard from  './Dashboard';
+import Pickup from './Pickup';
+import OrderStatus from './OrderStatus';
 
 export default class Account extends Component {
     constructor(props) {
@@ -60,6 +61,12 @@ export default class Account extends Component {
      })
     }
 
+  handleSubmit(){
+    this.props.navigator.push({
+      component: Pickup
+    })
+  }
+
   handleBack(){
     this.props.navigator.pop()
   }
@@ -82,6 +89,9 @@ export default class Account extends Component {
                 </Text>
 
             </View>
+            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
+              <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
+            </TouchableHighlight>
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
               <Text style={stylesConfirm.transparentButtonText}>Back</Text>
             </TouchableHighlight>
