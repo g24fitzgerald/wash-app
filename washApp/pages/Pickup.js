@@ -136,7 +136,7 @@ var stylesPicker = StyleSheet.create({
     alignItems: 'center',
     width: 377,
     height: 150,
-    marginTop: 30
+    marginTop: 30,
   },
   view: {
     backgroundColor: 'white',

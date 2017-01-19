@@ -9,8 +9,7 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator,
-  Image,
-  ListView
+  Image
 } from 'react-native';
 
 import styles from '../styles/common-styles';
@@ -20,7 +19,7 @@ import OrderStatus from './OrderStatus';
 export default class Account extends Component {
     constructor(props) {
       super(props);
-      
+
        this.state = {
         loading: false,
         firstName: '',
@@ -44,6 +43,9 @@ export default class Account extends Component {
     .once('value')
     .then((snapshot)=> {
      let snap = snapshot.val();
+     console.log(snap)
+     console.log(snap.email)
+     console.log(snap.location.city)
        this.setState({
         firstName: snap.firstName,
         lastName: snap.lastName,
@@ -55,7 +57,7 @@ export default class Account extends Component {
         state: snap.location.state,
         zip: snap.location.zip
        })
-     
+
      })
     }
 
@@ -73,7 +75,6 @@ export default class Account extends Component {
             <View style={styles.container}>
 
             <View style={stylesConfirm.pickupWindow}>
-
                 <Text style={stylesConfirm.confirmationText}>
                 { this.state.firstName },
                 { this.state.lastName },
@@ -93,7 +94,7 @@ export default class Account extends Component {
             </TouchableHighlight>
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
               <Text style={stylesConfirm.transparentButtonText}>Back</Text>
-            </TouchableHighlight>              
+            </TouchableHighlight>
 
 
 
@@ -132,5 +133,3 @@ export default class Account extends Component {
     textAlign: 'center'
   },
   });
-
-AppRegistry.registerComponent('washApp', () => washApp);

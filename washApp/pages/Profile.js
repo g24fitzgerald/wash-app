@@ -6,6 +6,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View,
   TouchableHighlight,
   ActivityIndicator,
@@ -72,9 +73,38 @@ export default class Profile extends Component {
           return (
             <View style={styles.container}>
 
-            <View style={stylesConfirm.pickupWindow}>
+              <View style={pageStyles.name}>
+                <View>
+                  <Text style={pageStyles.fontSM}> First Name</Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.firstName }
+                    placeholder={this.state.firstName}/>
+                </View>
+                <View>
+                  <Text style={pageStyles.fontSM}> Last Name</Text>  
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.lastName }
+                    placeholder={ this.state.lastName } />
+                </View>
 
-                <Text style={stylesConfirm.confirmationText}>
+
+                  <Text style={pageStyles.fontSM}> Email</Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.email }
+                    placeholder={this.state.email}/>
+
+                  <Text style={pageStyles.fontSM}> Phone Number </Text>  
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.phoneNumber }
+                    placeholder={ this.state.phoneNumber } />
+
+
+
+                <Text style={pageStyles.confirmationText}>
                 { this.state.firstName },
                 { this.state.lastName },
                 { this.state.email },
@@ -86,13 +116,21 @@ export default class Profile extends Component {
                 { this.state.zip },
 
                 </Text>
+                </View>
 
-            </View>
+
+
+
+
+
+
+
+
             <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
-              <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
+              <Text style={styles.primaryButtonText}>Edit</Text>
             </TouchableHighlight>
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-              <Text style={stylesConfirm.transparentButtonText}>Back</Text>
+              <Text style={styles.transparentButtonText}>Back</Text>
             </TouchableHighlight>              
 
 
@@ -102,13 +140,36 @@ export default class Profile extends Component {
         }
       }
 
-  const stylesConfirm = StyleSheet.create({
-    container: {
+  const pageStyles = StyleSheet.create({
+
+  name: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-      },
+
+  },
+    
+  fontSM: {
+    fontSize: 8
+  },
+
+  textInput: {
+    height: 30,
+    width: 150,
+    borderColor: '#1AAEED',
+    borderWidth: 1,
+    margin: 2,
+    fontSize: 15
+  },
+
+  container: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#F5FCFF',
+    },
+
   pickupWindow: {
     margin: 20
   },
