@@ -5,36 +5,44 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
+  ActivityIndicator,
 } from 'react-native';
-import { firebase } from '../utils/firebase';
+
+import styles from '../styles/common-styles';
+import Dashboard from  './Dashboard'; //so we can navigate back to Dashboard
 export default class OrderStatus extends Component {
   constructor(props){
     super(props)
-    this.firebaseRef = firebase.database().ref('users/').child('users')
+    this.firebaseRef = firebase.database()
     this.state = {
-      orders: []
+      loading: false,
+      pickupDate: '',
+      pickupTime: '',
+      dropoffDate: '',
+      dropoffTime: '',
     }
   }
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
     const userData = this.props.firebase.auth().currentUser;
-    this.setState({
-      loading: false,
-      uid: userData.uid,
-      // pickupDate: userData.uid,
-      // pickupTime: userData.uid,
-      // dropoff: '',
-      // dropoffDate: '',
-      // dropoffTime: '',
-    })
-    let user= firebase.auth().currentUser;
-    console.log('this.firebaseRef', this.firebaseRef);
-    console.log("firebase call" + user);
-    console.log('this.props.firebase', this.props.firebase);
-    console.log( 'this.props.firebase.auth().currentUser',this.props.firebase.auth().currentUser);
-    console.log('heres this stuff ', this.props.firebase.database().ref('/users/'+this.state.uid+'/orders/')  );
-    console.log('heres the second thing', this.props.firebase.database().ref('/users/'+this.state.uid+'/orders/-KamZUkIHm1ucbHZdFPS'));
 
+      this.props.firebase
+      .database()
+      .ref('/users/' + this.state.uid +'/orders/')
+      .once('value') //reads DB once
+      .then((snapshot)=> {
+       let snap = snapshot.val();
+       console.log(snap);
+       console.log(snap.pickupTime);
+       console.log(snap.dropoffTime);
+       this.setState({
+        pickupDate: snap.pickupDate,
+        pickupTime: snap.pickupTime,
+        dropoffDate: snap.dropoffDate,
+        dropoffTime: snap.dropoffTime,
+      })
+    })
   }
   // const renderOrders = this.state.orders.map(todo => {
   //     return(

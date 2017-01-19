@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 
-export default class washApp extends Component {
+export default class FAQ extends Component {
   render() {
     return (
       <View style={styles.container}>
