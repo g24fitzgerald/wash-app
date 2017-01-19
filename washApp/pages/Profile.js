@@ -32,7 +32,15 @@ export default class Profile extends Component {
         address2: '',
         city: '',
         state: '',
-        zip: ''
+        zip: '',
+        style: {
+                height: 30,
+                width: 150,
+                borderColor: '#1AAEED',
+                borderWidth: 1,
+                margin: 2,
+                fontSize: 15
+          }
        }
     }
 
@@ -61,9 +69,14 @@ export default class Profile extends Component {
     }
 
   handleSubmit(){
-    this.props.navigator.push({
-      component: Pickup
-    })
+this.setState({style: {                
+                height: 30,
+                width: 150,
+                borderColor: 'red',
+                borderWidth: 1,
+                margin: 2,
+                fontSize: 15}})
+  
   }
 
   handleBack(){
@@ -77,7 +90,8 @@ export default class Profile extends Component {
                 <View>
                   <Text style={pageStyles.fontSM}> First Name</Text>
                   <TextInput
-                    style={pageStyles.textInput}
+                    style={this.state.style}
+                    onChangeText={(text) => this.setState({firstName: text})}
                     value={ this.state.firstName }
                     placeholder={this.state.firstName}/>
                 </View>
@@ -117,11 +131,6 @@ export default class Profile extends Component {
 
                 </Text>
                 </View>
-
-
-
-
-
 
 
 
