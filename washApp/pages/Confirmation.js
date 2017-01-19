@@ -60,6 +60,7 @@ export default class Confirmation extends Component {
           value={this.state.specialInstructions}
           multiline={true}
           placeholder={" Please input any specific instructions:"} />
+          <Text>{"\n"} </Text>
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup"/>
             <Text style={stylesConfirm.confirmationText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }{"\n"}{"\n"}</Text>
@@ -67,7 +68,7 @@ export default class Confirmation extends Component {
             <Text style={stylesConfirm.confirmationText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
         </View>
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={stylesConfirm.primaryButton}>
-          <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
+          <Text style={stylesConfirm.primaryButtonText}>Confirm</Text>
         </TouchableHighlight>
           <TouchableHighlight onPress={this.handleBack.bind(this)} style={stylesConfirm.transparentButton}>
           <Text style={stylesConfirm.transparentButtonText}>Back</Text>
