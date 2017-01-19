@@ -48,10 +48,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 2,
-    maxWidth: 380,
-    marginRight: 10,
+    maxWidth: 375,
     marginTop: 20,
-    resizeMode: Image.resizeMode.contain,
   },
   view: {
     backgroundColor: 'white',

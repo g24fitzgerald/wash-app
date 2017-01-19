@@ -78,7 +78,7 @@ render() {
           secureTextEntry={true}
           placeholder={"Password"} />
         <TouchableHighlight onPress={this.signup.bind(this)} style={pageStyles.primaryButton}>
-          <Text style={pageStyles.primaryButtonText}>Signup</Text>
+          <Text style={pageStyles.primaryButtonText}>Sign Up</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.transparentButton}>
