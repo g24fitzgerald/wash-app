@@ -70,27 +70,27 @@ render() {
           style={styles.textInput}
           onChangeText={(text) => this.setState({address1: text})}
           value={this.state.address1}
-          placeholder={"Address"} />
+          placeholder={" Address"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({address2: text})}
           value={this.state.address2}
-          placeholder={"Suite"} />
+          placeholder={" Suite"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({city: text})}
           value={this.state.city}
-          placeholder={"City"} />
+          placeholder={" City"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({state: text})}
           value={this.state.state}
-          placeholder={"State"} />
+          placeholder={" State"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({zip: text})}
           value={this.state.zip}
-          placeholder={"Zip"} />
+          placeholder={" Zip"} />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={pageStyles.primaryButton}>
           <Text style={pageStyles.primaryButtonText}>Next</Text>
         </TouchableHighlight>

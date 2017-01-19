@@ -37,13 +37,13 @@ export default class Login extends Component {
           style={styles.textInput}
           onChangeText={(text) => this.setState({email: text})}
           value={this.state.email}
-          placeholder={"Email Address"} />
+          placeholder={" Email Address"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({password: text})}
           value={this.state.password}
           secureTextEntry={true}
-          placeholder={"Password"} />
+          placeholder={" Password"} />
         <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.primaryButton}>
           <Text style={pageStyles.primaryButtonText}>Login</Text>
         </TouchableHighlight>

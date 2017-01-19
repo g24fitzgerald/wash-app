@@ -8,7 +8,8 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
 
 export default class FAQ extends Component {
@@ -18,7 +19,7 @@ export default class FAQ extends Component {
 
   render() {
     return (
-
+      <ScrollView>
       <View style={styles.container}>
         <Image
         source={require('../images/bubbleBanner.png')}
@@ -36,6 +37,7 @@ export default class FAQ extends Component {
         <Text style={styles.transparentButtonText}>Back</Text>
       </TouchableHighlight>
       </View>
+      </ScrollView>
     );
   }
 }

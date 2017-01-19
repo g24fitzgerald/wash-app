@@ -57,10 +57,8 @@ export default class Account extends Component {
               <Text style={stylesConfirm.primaryButtonText}>Payment</Text>
             </TouchableHighlight>
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-              <Text style={stylesConfirm.transparentButtonText}>Back</Text>
+              <Text style={stylesConfirm.transparentButtonText}>Back to Dashboard</Text>
             </TouchableHighlight>
-
-
 
             </View>
           );
@@ -82,13 +80,6 @@ export default class Account extends Component {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'left',
-  },
-  transparentButtonText: {
-    color: '#1AAEED',
-    margin: 10,
-    padding: 15,
-    fontWeight: 'bold',
-    textAlign: 'center'
   },
   transparentButtonText: {
     color: '#1AAEED',

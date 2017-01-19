@@ -6,26 +6,44 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
 } from 'react-native';
 
+import Dashboard from './Dashboard';
+
 export default class washApp extends Component {
+  handleBack(){
+    this.props.navigator.push({
+      component: Dashboard
+    })
+  }
   render() {
     return (
-      <View style={styles.container}>
+      <View style={stylesConfirm.container}>
         <Text>
-      PAYMENT -> NEEDS TO BE DIRKS BALD PHASE PHOTO
+      PAYMENT -> Mike and Dirk need your $$$
         </Text>
+        <TouchableHighlight onPress={this.handleBack.bind(this)} style={stylesConfirm.transparentButton}>
+        <Text style={stylesConfirm.transparentButtonText}>Back to Dashboard</Text>
+      </TouchableHighlight>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const stylesConfirm = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  }
-});
+    },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+    },
+  });

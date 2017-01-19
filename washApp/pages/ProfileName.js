@@ -63,17 +63,17 @@ render() {
           style={styles.textInput}
           onChangeText={(text) => this.setState({firstName: text})}
           value={this.state.firstName}
-          placeholder={"First Name"} />
+          placeholder={" First Name"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({lastName: text})}
           value={this.state.lastName}
-          placeholder={"Last Name"} />
+          placeholder={" Last Name"} />
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.setState({phoneNumber: text})}
           value={this.state.phoneNumber}
-          placeholder={"Phone Number"} />
+          placeholder={" Phone Number"} />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={pageStyles.primaryButton}>
           <Text style={pageStyles.primaryButtonText}>Next</Text>
         </TouchableHighlight>
