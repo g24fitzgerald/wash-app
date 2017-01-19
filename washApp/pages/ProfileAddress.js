@@ -109,6 +109,7 @@ render() {
   }
 }
 
+
 const pageStyles = StyleSheet.create({
   primaryButtonText: {
     backgroundColor: '#1AAEED',

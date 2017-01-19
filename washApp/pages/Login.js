@@ -114,5 +114,3 @@ const pageStyles = StyleSheet.create({
     textAlign: 'center'
   },
 });
-
-AppRegistry.registerComponent('Login', () => Login);

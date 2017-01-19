@@ -165,5 +165,3 @@ const pageStyles = StyleSheet.create({
     paddingBottom: 4,
   }
 });
-
-AppRegistry.registerComponent('Home', () => Home);

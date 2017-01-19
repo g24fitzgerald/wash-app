@@ -94,5 +94,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
-AppRegistry.registerComponent('washApp', () => washApp);
