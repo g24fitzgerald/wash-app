@@ -26,9 +26,9 @@ module.exports = StyleSheet.create({
     width: 200,
     borderColor: '#1AAEED',
     borderWidth: 1,
-    margin: 5,
-
+    margin: 2
   },
+  
   transparentButton: {
     marginTop: 10,
     padding: 15

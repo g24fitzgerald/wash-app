@@ -18,6 +18,24 @@ import Account from './Account';
 
 export default class Dashboard extends Component {
 
+  componentWillMount(){ //set up new component when page is going to load with the following properties set.
+    const userData = this.props.firebase.auth().currentUser;
+    this.setState({
+      loading: false,
+      uid: userData.uid,
+      pickup: '',
+      pickupDate: '',
+      pickupTime: '',
+      dropoff: '',
+      dropoffDate: '',
+      dropoffTime: '',
+      specialInstructions: ''
+    })
+    console.log(this.props)
+}
+   
+    
+
   goToPickup(){
     this.props.navigator.push({
       component: Pickup
