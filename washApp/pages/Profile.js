@@ -15,8 +15,6 @@ import {
 } from 'react-native';
 
 import styles from '../styles/common-styles';
-import Pickup from './Pickup';
-import OrderStatus from './OrderStatus';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -138,6 +136,7 @@ export default class Profile extends Component {
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
               <Text style={pageStyles.transparentButtonText}>Back</Text>
             </TouchableHighlight>
+
 
             </View>
           );
