@@ -78,15 +78,12 @@ export default class Profile extends Component {
                     style={pageStyles.textInput}
                     value={ this.state.firstName }
                     placeholder={this.state.firstName}/>
-                </View>
-                <View>
+
                   <Text style={pageStyles.fontSM}> Last Name</Text>
                   <TextInput
                     style={pageStyles.textInput}
                     value={ this.state.lastName }
                     placeholder={ this.state.lastName } />
-                </View>
-
 
                   <Text style={pageStyles.fontSM}> Email</Text>
                   <TextInput
@@ -100,37 +97,45 @@ export default class Profile extends Component {
                     value={ this.state.phoneNumber }
                     placeholder={ this.state.phoneNumber } />
 
+                  <Text style={pageStyles.fontSM}> Address 1 </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.address1 }
+                    placeholder={ this.state.address1 } />
 
+                  <Text style={pageStyles.fontSM}> Address 2 </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.address2 }
+                    placeholder={ this.state.address2 } />
 
-                <Text style={pageStyles.confirmationText}>
-                { this.state.firstName },
-                { this.state.lastName },
-                { this.state.email },
-                { this.state.phoneNumber },
-                { this.state.address1 },
-                { this.state.address2 },
-                { this.state.city },
-                { this.state.state },
-                { this.state.zip },
+                  <Text style={pageStyles.fontSM}> City </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.city }
+                    placeholder={ this.state.city } />
 
-                </Text>
+                  <Text style={pageStyles.fontSM}> State </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.state }
+                    placeholder={ this.state.state } />
+
+                  <Text style={pageStyles.fontSM}> Zip </Text>
+                  <TextInput
+                    style={pageStyles.textInput}
+                    value={ this.state.zip }
+                    placeholder={ this.state.zip } />
+
+                </View>
                 </View>
 
-
-
-
-
-
-
-
-
-            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
-              <Text style={styles.primaryButtonText}>Edit</Text>
+            <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={pageStyles.primaryButton}>
+              <Text style={pageStyles.primaryButtonText}>Edit</Text>
             </TouchableHighlight>
-              <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-              <Text style={styles.transparentButtonText}>Back</Text>
+              <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
+              <Text style={pageStyles.transparentButtonText}>Back</Text>
             </TouchableHighlight>
-
 
 
             </View>
@@ -149,7 +154,7 @@ export default class Profile extends Component {
   },
 
   fontSM: {
-    fontSize: 8
+    fontSize: 12
   },
 
   textInput: {
@@ -158,7 +163,7 @@ export default class Profile extends Component {
     borderColor: '#1AAEED',
     borderWidth: 1,
     margin: 2,
-    fontSize: 15
+    fontSize: 16
   },
 
   container: {

@@ -18,12 +18,7 @@ export default class OrderHistory extends Component {
   constructor(props){
     super(props)
     this.state = {
-      orderData: []
-      // loading: false,
-      // pickupDate: '',
-      // pickupTime: '',
-      // dropoffDate: '',
-      // dropoffTime: '',
+      orderData: []  //instantiate empty array that will hold the firebase payload after it's been covnerted to an array
     }
   }
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
@@ -48,9 +43,10 @@ export default class OrderHistory extends Component {
   render() { //map function iterates through the array or ojects, accessing each targeted object value by key using dot notation to format them
     const orderHistory = this.state.orderData.map(order => {
       return (<Text key={ order.id }>
-                <Text>Order number { order.id } </Text>
-                <Text>Pickup date: {order.pickupDate} at {order.pickupTime }</Text>
-                <Text>Drop off date: {order.dropoffDate} at {order.dropoffTime}</Text>
+                <Text>{"\n"}</Text>
+                <Text>Order number { order.id } {"\n"}</Text>
+                <Text>Pickup date: {order.pickupDate} at {order.pickupTime }{"\n"}</Text>
+                <Text>Drop off date: {order.dropoffDate} at {order.dropoffTime}{"\n"}</Text>
               </Text>
             )
     });
@@ -65,12 +61,3 @@ export default class OrderHistory extends Component {
     )
   }
 }
-
-const stylesOrder = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
