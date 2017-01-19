@@ -97,5 +97,3 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   }
 });
-
-AppRegistry.registerComponent('washApp', () => washApp);

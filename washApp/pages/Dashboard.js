@@ -151,5 +151,3 @@ export default class Dashboard extends Component {
         marginBottom: 20,
       }
   });
-
-AppRegistry.registerComponent('Dashboard', () => Dashboard);

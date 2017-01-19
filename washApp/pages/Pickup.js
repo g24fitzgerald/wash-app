@@ -191,4 +191,3 @@ var stylesPicker = StyleSheet.create({
     textAlign: 'center'
   },
 });
-AppRegistry.registerComponent('DatePickup', () => Pickup);
