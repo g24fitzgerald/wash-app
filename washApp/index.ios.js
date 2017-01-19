@@ -17,16 +17,8 @@ import {
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-
 import Home from './pages/Home';
-
-<<<<<<< HEAD
 import { firebase } from './utils/firebase';
-=======
-
-import { firebase } from './utils/firebase'
->>>>>>> cfe8d1279a733777a7298919c9dd2bcff588eb0b
-
 
 import styles from './styles/common-styles';
 
