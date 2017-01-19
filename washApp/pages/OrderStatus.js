@@ -18,7 +18,7 @@ export default class OrderStatus extends Component {
   constructor(props){
     super(props)
     this.state = {
-      orders: []
+      orderData: []
       // loading: false,
       // pickupDate: '',
       // pickupTime: '',
@@ -35,42 +35,30 @@ export default class OrderStatus extends Component {
       .on('value', data => {  //.on keeps DB open while it reads contents so we can convert object returned to array
         const results = firebaseListToArray(data.val());  //here we convert the firebase payload object into an array so we can iterate through it
         console.log('order data: ', results); //sanity check
-        
 
         this.setState({
           orderData: results   //orderData set to the array of order objects
         });
       });
-      // .once('value') //reads DB once
-      // .then((snapshot)=> {  //run this function called snapshot which creates an object snapshot of where you are in tree
-      //  let snap = snapshot.val();
-      //  let orderData = snap[Object.keys(snap)[0]]; //lets us reach into the only key value pair in the snap object, which is a random number key, with an Object value whose key: value pairs are the order data we want
-      //  console.log('snap: ',snap);
-      //  console.log('Data pickup', orderData.pickupDate);
-      //  })
-      //  console.log(snap.dropoffTime);
-      //  this.setState({
-      //   pickupDate: snap.pickupDate,
-      //   pickupTime: snap.pickupTime,
-      //   dropoffDate: snap.dropoffDate,
-      //   dropoffTime: snap.dropoffTime,
-      // })
+
   }
   handleBack(){
     this.props.navigator.pop()
   }
   render() {
-    // const orderHistory = this.state.orderData.map(order => {
-    //   return (<View>
-    //
-    //           </View>
-    //         )
-    // });
+    const orderHistory = this.state.orderData.map(order => {
+      return (<Text key={ order.id }>
+                Pickup date: {order.pickupDate} at {order.pickupTime}
+                Drop off date: {order.dropoffDate} at {order.dropoffTime}
+              </Text>
+            )
+    });
     return (
-      // <ul className="orderData">
-      //   { orderHistory.reverse() }
-      // </ul>
-    );
+      <View style={styles.container}>
+        <Text>Order History</Text>
+        { orderHistory.reverse() }
+      </View>
+    )
   }
 }
 
