@@ -106,7 +106,6 @@ const pageStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-
   transparentButtonText: {
     color: '#1AAEED',
     margin: 10,
@@ -114,7 +113,6 @@ const pageStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   },
-
 });
 
 AppRegistry.registerComponent('Login', () => Login);

@@ -8,10 +8,18 @@ import {
   Text,
   View,
   ActivityIndicator,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
+import Home from './Home';
+
 export default class washApp extends Component {
+  home(){
+    this.props.navigator.push({
+      component: Home
+    });
+  }
   render() {
     return (
       <View style={styles.view}>
@@ -26,6 +34,9 @@ export default class washApp extends Component {
 3. Our valet will collect your goods at the requested time and transport to our locally operated facilities. {"\n"}{"\n"}
 4. The cleaning attendants will carefully service your clothes and linen under your specific instructions and preferences. {"\n"}{"\n"}
 5. Once your order has finished, you will receive a notification, and it will be sent out for delivery at the chosen time. </Text>
+        <TouchableHighlight onPress={this.home.bind(this)} style={styles.primaryButton}>
+          <Text style={styles.back}>Back</Text>
+        </TouchableHighlight>
         </View>
       </View>
     );
@@ -36,7 +47,7 @@ const styles = StyleSheet.create({
   backgroundLogo: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 3,
+    flex: 2,
     maxWidth: 380,
     marginRight: 10,
     marginTop: 20,
@@ -74,6 +85,18 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginLeft: 15,
   },
+  back: {
+    backgroundColor: '#1AAEED',
+    margin: 15,
+    padding: 15,
+    color: 'black',
+    fontWeight: 'bold',
+    borderWidth: 5,
+    borderColor: 'white',
+    textAlign: 'center',
+    marginTop: 10,
+    paddingBottom: 4,
+  }
 });
 
 AppRegistry.registerComponent('washApp', () => washApp);
