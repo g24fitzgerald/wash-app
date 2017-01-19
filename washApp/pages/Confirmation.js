@@ -36,13 +36,8 @@ export default class Confirmation extends Component {
 
   handleSubmit(){
     this.props.firebase.database()
-<<<<<<< HEAD
     .ref('/users/'+this.state.uid+'/orders/'+Math.floor(Date.now() / 1000))  //inserts timestamp on handle submit firebase push
     .set({
-=======
-      .ref('/users/'+this.state.uid+'/orders/'+Math.floor(Date.now() / 1000))  //inserts timestamp on handle submit firebase push
-      .set({
->>>>>>> cfe8d1279a733777a7298919c9dd2bcff588eb0b
             pickup: this.props.children.pickup,  //props were inherited from dropoff component
             pickupDate: this.props.children.pickupDate,
             pickupTime: this.props.children.pickupTime,
