@@ -48,9 +48,10 @@ export default class OrderHistory extends Component {
   render() { //map function iterates through the array or ojects, accessing each targeted object value by key using dot notation to format them
     const orderHistory = this.state.orderData.map(order => {
       return (<Text key={ order.id }>
-                <Text>Order number { order.id } </Text>
-                <Text>Pickup date: {order.pickupDate} at {order.pickupTime }</Text>
-                <Text>Drop off date: {order.dropoffDate} at {order.dropoffTime}</Text>
+                <Text>{"\n"}</Text>
+                <Text>Order number { order.id } {"\n"}</Text>
+                <Text>Pickup date: {order.pickupDate} at {order.pickupTime }{"\n"}</Text>
+                <Text>Drop off date: {order.dropoffDate} at {order.dropoffTime}{"\n"}</Text>
               </Text>
             )
     });
