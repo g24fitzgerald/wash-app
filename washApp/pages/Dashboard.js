@@ -14,7 +14,7 @@ import {
 
 import Pickup from './Pickup';
 import OrderHistory from './OrderHistory';
-import Account from './Profile';
+import Account from './Account';
 
 export default class Dashboard extends Component {
 

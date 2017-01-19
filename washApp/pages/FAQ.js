@@ -7,10 +7,15 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 export default class FAQ extends Component {
+  handleBack(){
+    this.props.navigator.pop()
+  }
+
   render() {
     return (
 
@@ -27,7 +32,9 @@ export default class FAQ extends Component {
         <Text style={styles.faq1}>5. I’ve never booked a cleaning before. What if I’m not happy?</Text>{"\n"}<Text style={styles.faq2}>Simply put: if you’re not happy, we’re not happy. Whatever it takes, we’ll make it right.
 </Text>{"\n"}{"\n"}
         </Text>
-
+        <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
+        <Text style={stylesConfirm.transparentButtonText}>Back</Text>
+      </TouchableHighlight>
       </View>
     );
   }
