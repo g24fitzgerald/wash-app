@@ -74,16 +74,14 @@ const pageStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    maxWidth: 350,
-    marginLeft: 30,
+    maxWidth: 375,
+    marginTop: 15
   },
   backgroundIcon: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
-    maxWidth: 300,
-    marginTop: 14,
-    marginLeft: 2,
+    flex: 2,
+    maxWidth: 385,
     // resizeMode: Image.resizeMode.cover,
   },
   container: {

@@ -134,9 +134,9 @@ var stylesPicker = StyleSheet.create({
   backgroundLogo: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
-    maxWidth: 315,
-    marginLeft: 60,
+    width: 377,
+    height: 150,
+    marginTop: 30,
   },
   view: {
     backgroundColor: 'white',

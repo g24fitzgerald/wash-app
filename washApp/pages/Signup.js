@@ -41,15 +41,17 @@ export default class Signup extends Component {
 					password: '',
 					loading: false
 				});
+
+        this.props.navigator.push({
+          component: ProfileName
+    })
 			}).catch((error) => {
 				this.setState({
 					loading: false
 				});
 				alert("Account creation failed: " + error.message );
 			});
-		this.props.navigator.push({
-			component: ProfileName
-		})
+
 
 	}
 
@@ -76,7 +78,7 @@ render() {
           secureTextEntry={true}
           placeholder={"Password"} />
         <TouchableHighlight onPress={this.signup.bind(this)} style={pageStyles.primaryButton}>
-          <Text style={pageStyles.primaryButtonText}>Signup</Text>
+          <Text style={pageStyles.primaryButtonText}>Sign Up</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={this.login.bind(this)} style={pageStyles.transparentButton}>

@@ -1,4 +1,3 @@
-
 'use strict' //declares that we use strict JavaScript rules. Because ReactNative is a new language we want to use strict JS to leave less room for compiler interpretation
 import React, { Component } from 'react';
 import {
@@ -9,15 +8,11 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-
 import Dropoff from './Dropoff';
 import Dashboard from './Dashboard';
-
 import styles from '../styles/common-styles';
 import TextBox from  '../components/Textbox';
-
 export default class Confirmation extends Component {
-
   componentWillMount(){ //set up new component when page is going to load with the following properties set.
     const userData = this.props.firebase.auth().currentUser;
     this.setState({
@@ -33,7 +28,6 @@ export default class Confirmation extends Component {
     })
     console.log(this.props)
   }
-
   handleSubmit(){
     this.props.firebase.database()
     .ref('/users/'+this.state.uid+'/orders/'+Math.floor(Date.now() / 1000))  //inserts timestamp on handle submit firebase push
@@ -45,7 +39,6 @@ export default class Confirmation extends Component {
             dropoffDate: this.props.children.dropoffDate,
             dropoffTime: this.props.children.dropoffTime,
             specialInstructions: this.state.specialInstructions//state was set onChange of text input
-
           });
     alert('Thanks! Order Confirmed')
     this.props.navigator.push({ //dictates which page the navigator will display next
@@ -53,21 +46,20 @@ export default class Confirmation extends Component {
     })
     console.log(this.props)  //TEST
   }
-
   handleBack(){
     this.props.navigator.pop();
   }
-
   render() {
     return (
-      <View style={styles.container}>
-        <Heading label="Confirmation" />
+      <View style={stylesConfirm.container}>
+        <Heading label="ORDER CONFIRMATION DETAILS" />
+        <Text>{"\n"}{"\n"} </Text>
         <TextInput
-          style={styles.textInputBox}
+          style={stylesConfirm.textInputBox}
           onChangeText={(text) => this.setState({specialInstructions: text})}
           value={this.state.specialInstructions}
           multiline={true}
-          placeholder={"Please input any specific instructions"} />
+          placeholder={" Please input any specific instructions:"} />
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup"/>
             <Text style={stylesConfirm.confirmationText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }{"\n"}{"\n"}</Text>
@@ -84,7 +76,6 @@ export default class Confirmation extends Component {
     );
   }
 }
-
 class Heading extends Component {
   render() {
     return (
@@ -103,11 +94,19 @@ const stylesConfirm = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  textInputBox: {
+    marginLeft: 40,
+    height: 100,
+    width: 300,
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
   pickupWindow: {
     margin: 20
   },
   confirmationText: {
     color: '#1AAEED',
+    fontSize: 16,
   },
   primaryButtonText: {
     backgroundColor: '#1AAEED',
@@ -126,5 +125,4 @@ const stylesConfirm = StyleSheet.create({
     textAlign: 'center'
   },
 });
-
 AppRegistry.registerComponent('Confirmation', () => Confirmation);
