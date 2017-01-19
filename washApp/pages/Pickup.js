@@ -134,8 +134,8 @@ var stylesPicker = StyleSheet.create({
   backgroundLogo: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 300,
-    height: 150
+    width: 377,
+    height: 150,
   },
   view: {
     backgroundColor: 'white',
