@@ -24,8 +24,9 @@ module.exports = StyleSheet.create({
   textInput: {
     height: 40,
     width: 200,
-    borderColor: 'red',
-    borderWidth: 1
+    borderColor: '#1AAEED',
+    borderWidth: 1,
+    margin: 2
   },
   textInputBox: {
     height: 100,
