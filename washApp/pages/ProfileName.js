@@ -7,7 +7,8 @@ import {
      TextInput,
      View,
      TouchableHighlight,
-     ActivityIndicator
+     ActivityIndicator,
+     StyleSheet
 } from 'react-native';
 
 import ProfileAddress from './ProfileAddress'
@@ -73,8 +74,8 @@ render() {
           onChangeText={(text) => this.setState({phoneNumber: text})}
           value={this.state.phoneNumber}
           placeholder={"Phone Number"} />
-        <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>Next</Text>
+        <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={pageStyles.primaryButton}>
+          <Text style={pageStyles.primaryButtonText}>Next</Text>
         </TouchableHighlight>
 
 
@@ -91,5 +92,16 @@ render() {
   }
 }
 
+const pageStyles = StyleSheet.create({
+  primaryButtonText: {
+    backgroundColor: '#1AAEED',
+    margin: 10,
+    marginTop: 20,
+    padding: 15,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
 
 AppRegistry.registerComponent('ProfileName', () => ProfileName);
