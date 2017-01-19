@@ -107,6 +107,3 @@ render() {
                 )
   }
 }
-
-
-AppRegistry.registerComponent('ProfileAddress', () => ProfileAddress);

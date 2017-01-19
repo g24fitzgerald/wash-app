@@ -203,5 +203,3 @@ export default class Profile extends Component {
     textAlign: 'center'
   },
   });
-
-AppRegistry.registerComponent('Profile', () => Profile);

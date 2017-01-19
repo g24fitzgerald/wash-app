@@ -90,6 +90,3 @@ render() {
                 )
   }
 }
-
-
-AppRegistry.registerComponent('ProfileName', () => ProfileName);
