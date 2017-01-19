@@ -33,7 +33,7 @@ export default class FAQ extends Component {
 </Text>{"\n"}{"\n"}
         </Text>
         <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
-        <Text style={stylesConfirm.transparentButtonText}>Back</Text>
+        <Text style={styles.transparentButtonText}>Back</Text>
       </TouchableHighlight>
       </View>
     );
@@ -84,8 +84,14 @@ const styles = StyleSheet.create({
   bubbleBanner: {
     height: 150,
     resizeMode: 'contain'
-  }
-
+  },
+  transparentButtonText: {
+    color: '#1AAEED',
+    margin: 10,
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
 
 });
 
