@@ -15,13 +15,11 @@ import {
 } from 'react-native';
 
 import styles from '../styles/common-styles';
-import Pickup from './Pickup';
-import OrderStatus from './OrderStatus';
 
 export default class Profile extends Component {
     constructor(props) {
       super(props);
-      
+
        this.state = {
         loading: false,
         firstName: '',
@@ -56,7 +54,7 @@ export default class Profile extends Component {
         state: snap.location.state,
         zip: snap.location.zip
        })
-     
+
      })
     }
 
@@ -82,7 +80,7 @@ export default class Profile extends Component {
                     placeholder={this.state.firstName}/>
                 </View>
                 <View>
-                  <Text style={pageStyles.fontSM}> Last Name</Text>  
+                  <Text style={pageStyles.fontSM}> Last Name</Text>
                   <TextInput
                     style={pageStyles.textInput}
                     value={ this.state.lastName }
@@ -96,7 +94,7 @@ export default class Profile extends Component {
                     value={ this.state.email }
                     placeholder={this.state.email}/>
 
-                  <Text style={pageStyles.fontSM}> Phone Number </Text>  
+                  <Text style={pageStyles.fontSM}> Phone Number </Text>
                   <TextInput
                     style={pageStyles.textInput}
                     value={ this.state.phoneNumber }
@@ -131,7 +129,7 @@ export default class Profile extends Component {
             </TouchableHighlight>
               <TouchableHighlight onPress={this.handleBack.bind(this)} style={styles.transparentButton}>
               <Text style={styles.transparentButtonText}>Back</Text>
-            </TouchableHighlight>              
+            </TouchableHighlight>
 
 
 
@@ -149,7 +147,7 @@ export default class Profile extends Component {
     alignItems: 'center',
 
   },
-    
+
   fontSM: {
     fontSize: 8
   },
