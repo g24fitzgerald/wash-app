@@ -68,6 +68,10 @@ const firebaseConfig = {
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 ```
+### Authenticate with Firebase using Password-Bassed accounts
+Follow instructions in the following link to enable password-based authentication: 
+https://firebase.google.com/docs/auth/web/password-auth
+
 Helpful resources:
 
 https://firebase.googleblog.com/2016/01/the-beginners-guide-to-react-native-and_84.html
