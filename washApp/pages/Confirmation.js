@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableHighlight,
   View,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import Dropoff from './Dropoff';
 import Dashboard from './Dashboard';
@@ -89,6 +90,7 @@ class Heading extends Component {
           {this.props.label}
         </Text>
       </View>
+
     );
   }
 }
