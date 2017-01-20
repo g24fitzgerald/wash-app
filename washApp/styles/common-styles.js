@@ -18,7 +18,6 @@ module.exports = StyleSheet.create({
   },
   toolbar: {
     height: 56,
-    // backgroundColor: '#e9eaed',
   },
   textInput: {
     height: 40,
@@ -48,7 +47,6 @@ module.exports = StyleSheet.create({
     backgroundColor: '#1AAEED'
   },
   primaryButtonText: {
-    // color: '#FFF',
     textAlign: 'center',
     fontSize: 18
   },

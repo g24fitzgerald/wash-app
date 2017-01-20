@@ -99,8 +99,8 @@ render() {
 						</View>
 					</View>
 					);
-  }
-}
+  		}
+	}
 
 const pageStyles = StyleSheet.create({
   primaryButtonText: {
@@ -122,5 +122,4 @@ const pageStyles = StyleSheet.create({
 	applogo: {
     marginLeft: 50
   },
-
 });
