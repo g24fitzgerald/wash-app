@@ -45,9 +45,9 @@ export default class OrderHistory extends Component {
     const orderHistory = this.state.orderData.map(order => {
       return (<Text key={ order.id }>
                 <Text>{"\n"}</Text>
-                <Text>Order number { order.id } {"\n"}</Text>
-                <Text>Pickup date: {order.pickupDate} at {order.pickupTime }{"\n"}</Text>
-                <Text>Drop off date: {order.dropoffDate} at {order.dropoffTime}{"\n"}</Text>
+                <Text style={pageStyles.order}>Order number: { order.id } {"\n"}</Text>
+                <Text style={pageStyles.pickup}>Pickup date: {order.pickupDate} at {order.pickupTime }{"\n"}</Text>
+                <Text style={pageStyles.pickup}>Drop off date: {order.dropoffDate} at {order.dropoffTime}{"\n"}</Text>
               </Text>
             )
     });
@@ -67,6 +67,12 @@ export default class OrderHistory extends Component {
 
 const pageStyles = StyleSheet.create({
 
+  order: {
+    color: 'black',
+  },
+  pickup: {
+    color: '#1AAEED',
+  },
   transparentButtonText: {
     color: '#1AAEED',
     margin: 10,

@@ -106,20 +106,19 @@ render() {
               </View>
             </View>
                 )
-  }
-}
+            }
+          }
 
-
-const pageStyles = StyleSheet.create({
-  primaryButtonText: {
-    backgroundColor: '#1AAEED',
-    margin: 10,
-    marginTop: 20,
-    padding: 15,
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
+  const pageStyles = StyleSheet.create({
+    primaryButtonText: {
+      backgroundColor: '#1AAEED',
+      margin: 10,
+      marginTop: 20,
+      padding: 15,
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+  });
 
 AppRegistry.registerComponent('ProfileAddress', () => ProfileAddress);

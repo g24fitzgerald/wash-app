@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableHighlight,
   View,
+  Image
 } from 'react-native';
 import Dropoff from './Dropoff';
 import Dashboard from './Dashboard';
@@ -52,15 +53,18 @@ export default class Confirmation extends Component {
   render() {
     return (
       <View style={stylesConfirm.container}>
+        <Image
+        source={require('../images/process.png')}
+        style={stylesConfirm.backgroundLogo} />
         <Heading label="ORDER CONFIRMATION DETAILS" />
-        <Text>{"\n"}{"\n"} </Text>
+        {/* <Text>{"\n"}{"\n"} </Text> */}
         <TextInput
           style={stylesConfirm.textInputBox}
           onChangeText={(text) => this.setState({specialInstructions: text})}
           value={this.state.specialInstructions}
           multiline={true}
           placeholder={" Please input any specific instructions:"} />
-          <Text>{"\n"} </Text>
+          {/* <Text>{"\n"} </Text> */}
         <View style={stylesConfirm.pickupWindow}>
           <Heading label="Pickup"/>
             <Text style={stylesConfirm.confirmationText}>We'll pick it up on { this.props.children.pickupDate } at { this.props.children.pickupTime }{"\n"}{"\n"}</Text>
@@ -68,7 +72,7 @@ export default class Confirmation extends Component {
             <Text style={stylesConfirm.confirmationText}>We'll drop it off on { this.props.children.dropoffDate } at { this.props.children.dropoffTime }</Text>
         </View>
         <TouchableHighlight onPress={this.handleSubmit.bind(this)} style={stylesConfirm.primaryButton}>
-          <Text style={stylesConfirm.primaryButtonText}>Confirm</Text>
+          <Text style={stylesConfirm.primaryButtonText}>Confirm Order</Text>
         </TouchableHighlight>
           <TouchableHighlight onPress={this.handleBack.bind(this)} style={stylesConfirm.transparentButton}>
           <Text style={stylesConfirm.transparentButtonText}>Back</Text>
@@ -89,11 +93,13 @@ class Heading extends Component {
   }
 }
 const stylesConfirm = StyleSheet.create({
+  backgroundLogo: {
+    marginTop: 20,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   textInputBox: {
     marginLeft: 40,
