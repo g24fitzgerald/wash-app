@@ -79,15 +79,10 @@ export default class Profile extends Component {
               });
 
   alert('Profile Updated!')
-    this.props.navigator.push({ //dictates which page the navigator will display next
-      component: Profile
-    })
   }
 
   handleBack(){
-    this.props.navigator.push({
-      component: Account
-    })
+    this.props.navigator.pop()
   }
   render() {
           return (

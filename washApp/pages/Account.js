@@ -39,9 +39,7 @@ export default class Account extends Component {
   }
 
   handleBack(){
-    this.props.navigator.push({
-      component: Dashboard
-    })
+    this.props.navigator.pop()
   }
   render() {
           return (
