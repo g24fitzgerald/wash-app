@@ -55,14 +55,13 @@ export default class Login extends Component {
     // A simple UI with a toolbar, and content below it.
         return (
           <View style={styles.container}>
-          <Image
-          source={require('../images/app_logo.png')}
-          style={pageStyles.applogo} />
+            <Image source={require('../images/app_logo.png')}
+              style={pageStyles.applogo} />
             <View style={styles.body}>
               {content}
             </View>
           </View>
-                );
+    );
   }
 
   login(){
