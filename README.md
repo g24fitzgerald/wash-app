@@ -32,6 +32,10 @@ curl -0 -L http://npmjs.org/install.sh | sudo sh.
 ```
 
 ### Xcode
+If developing for android, please follow the link below, and select Android development:
+
+https://facebook.github.io/react-native/docs/getting-started.html
+
 The easiest way to install Xcode is via the Mac App Store. Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
 Now you can begin your project with the CLI command
