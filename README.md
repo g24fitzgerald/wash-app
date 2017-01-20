@@ -1,7 +1,11 @@
 # wash-app
+## Launder This
+***Copyright © 2017***
+
 Pickup and Drop-off laundry mobile app using ReactNative that employs Firebase with Auth0 sign in.
 
 ***Authors: Gina Fitzgerald, Paul Lizama, Vin Luu, Dan Nguyen***
+
 
 ## Installing Dependencies
 You will need Node.js, Watchman, the React Native command line interface, and Xcode.
@@ -60,3 +64,8 @@ const firebaseConfig = {
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 ```
+Helpful resources:
+
+https://firebase.googleblog.com/2016/01/the-beginners-guide-to-react-native-and_84.html
+
+https://facebook.github.io/react-native/docs/getting-started.html
