@@ -57,7 +57,7 @@ export default class OrderHistory extends Component {
         <Text style={styles.heading}>ORDER HISTORY</Text>
         { orderHistory.reverse() }
         <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
-          <Text style={pageStyles.transparentButtonText}>Back to Dashboard</Text>
+          <Text style={pageStyles.transparentButtonText}>Back</Text>
         </TouchableHighlight>
       </View>
     </ScrollView>

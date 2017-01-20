@@ -63,7 +63,7 @@ export default class Profile extends Component {
     const userData = this.props.firebase.auth().currentUser;
     this.props.firebase.database()
     .ref('/users/'+userData.uid)
-    .update({
+    .update({  //allows us to push updates to existing firebase data
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             phoneNumber: this.state.phoneNumber
