@@ -29,7 +29,7 @@ export default class washApp extends Component {
         <View style={styles.container}>
           <Text style={styles.title}>AUSTIN'S PREMIER WASH AND FOLD SERVICE {"\n"}</Text>
           <Text style={styles.header}>OUR PROCESS</Text>
-          <Text style={styles.text}>1. Create an account and schedule a pick-up time for any day of the week between 8am to 8pm. {"\n"}{"\n"}
+          <Text style={styles.text}>1. Create an account and schedule a pick-up time for any day of the week between 8am to 10pm. {"\n"}{"\n"}
 2. Schedule a drop-off time for your freshly washed and folded laundry. {"\n"}{"\n"}
 3. Our valet will collect your goods at the requested time and transport to our locally operated facilities. {"\n"}{"\n"}
 4. The cleaning attendants will carefully service your clothes and linen under your specific instructions and preferences. {"\n"}{"\n"}

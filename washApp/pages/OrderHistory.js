@@ -29,14 +29,29 @@ export default class OrderHistory extends Component {
       this.props.firebase
       .database()
       .ref('/users/' + userData.uid +'/orders/')
-      .on('value', data => {  //.on keeps DB open while we perform firebaseListToArray
-        const results = firebaseListToArray(data.val());  //firebaseListToArray function iterates through the firebase payload object, converting it into an array so we can iterate through it
-        console.log('order data: ', results); //sanity check
+      .once('value')
+      .then((snapshot)=>{
+        let snap = snapshot.val();
+        const results = firebaseListToArray(snap);
 
         this.setState({
-          orderData: results   //orderData set to the array of order objects
-        });
-      });
+          orderData: results
+        })
+      })
+
+              //the reason you do not want to use .on vs .once in this scenario is because a setState function should only not be pervasive.
+              //.on opens the firebase connection indefinately until it is closed, which means the function continues to stay on. .Once means the connection is reopen each time the page is loaded and state set then.
+      // this.props.firebase
+      // .database()
+      // .ref('/users/' + userData.uid +'/orders/')
+      // .on('value', data => {  //.on keeps DB open while we perform firebaseListToArray
+      //   const results = firebaseListToArray(data.val());  //firebaseListToArray function iterates through the firebase payload object, converting it into an array so we can iterate through it
+      //   console.log('order data: ', results); //sanity check
+
+      //   this.setState({
+      //     orderData: results   //orderData set to the array of order objects
+      //   });
+      // });
 
   }
   handleBack(){
