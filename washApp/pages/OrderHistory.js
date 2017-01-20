@@ -28,18 +28,18 @@ export default class OrderHistory extends Component {
 
       this.props.firebase
       .database()
-      .ref('/users/' + userData.uid +'/orders/')
-      .once('value')
+      .ref('/users/' + userData.uid +'/orders/')  //targets the branch unique to the logged in users orders branch 
+      .once('value') //reads database payload once on pageload (doesnt stay open as it did with .on)
       .then((snapshot)=>{
         let snap = snapshot.val();
-        const results = firebaseListToArray(snap);
+        const results = firebaseListToArray(snap); //firebaseListToArray function iterates through the firebase payload object, converting it into an array so we can iterate through it
 
         this.setState({
-          orderData: results
+          orderData: results //orderData set to the array of order objects inside the payload
         })
       })
 
-              //the reason you do not want to use .on vs .once in this scenario is because a setState function should only not be pervasive.
+      //the reason you do not want to use .on vs .once in this scenario is because a setState function should not be pervasive.
               //.on opens the firebase connection indefinately until it is closed, which means the function continues to stay on. .Once means the connection is reopen each time the page is loaded and state set then.
       // this.props.firebase
       // .database()
