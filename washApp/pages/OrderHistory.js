@@ -8,7 +8,8 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator,
-  ScrollView
+  ScrollView,
+  Image
 } from 'react-native';
 
 import { firebase, firebaseListToArray } from '../utils/firebase'; //need to use firebaseListToArray
@@ -69,7 +70,9 @@ export default class OrderHistory extends Component {
     return (
       <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.heading}>ORDER HISTORY</Text>
+      <Image
+      source={require('../images/oh_banner.png')}
+      style={pageStyles.oh_banner} />
         { orderHistory.reverse() }
         <TouchableHighlight onPress={this.handleBack.bind(this)} style={pageStyles.transparentButton}>
           <Text style={pageStyles.transparentButtonText}>Back</Text>
@@ -94,5 +97,9 @@ const pageStyles = StyleSheet.create({
     padding: 15,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  oh_banner: {
+    height: 150,
+    maxWidth: 355
   },
   });
