@@ -26,7 +26,7 @@ export default class FAQ extends Component {
         style={styles.bubbleBanner} />
         <Text style={styles.text}>
         <Text style={styles.faq1}>1. What services do you provide?</Text>{"\n"}<Text style={styles.faq2}>We offer a full-list of cleaning services, including one-time and repeat, small commercial spaces cleaning, and a bunch of additional services.</Text>{"\n"}{"\n"}
-        <Text style={styles.faq1}>2. What's the minimum?</Text>{"\n"}<Text style={styles.faq2}>Yes.  For Wash & Fold orders, the minimum order size is 10 lbs. per bag.</Text>{"\n"}{"\n"}
+        <Text style={styles.faq1}>2. Is there a the minimum?</Text>{"\n"}<Text style={styles.faq2}>Yes.  For Wash & Fold orders, the minimum order size is 10 lbs. per bag.</Text>{"\n"}{"\n"}
         <Text style={styles.faq1}>3. What's the turnaround?</Text>{"\n"}<Text style={styles.faq2}>We offer 24-hour turnaround on Wash & Fold for an additional $5.00 fee.
 </Text>{"\n"}{"\n"}
         <Text style={styles.faq1}>4. Do you use green products and supplies?</Text>{"\n"}<Text style={styles.faq2}>You bet. We believe in the environment, and we believe in only using cleaning products that are safe and in the best interest of the environment. Being green is a core part of our business’ belief.</Text>{"\n"}{"\n"}
